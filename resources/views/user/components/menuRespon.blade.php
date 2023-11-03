@@ -5,7 +5,7 @@
             <li>
                 <a href="{{ route('user.index') }}" title>Trang chủ</a>
             </li>
-            @foreach ($categoryProductParent as $item)
+            @foreach ($categoryProductParentMale as $item)
                 <li>
                     <a href="{{ route('user.category', $item->slug) }}" title="">{{ $item->name }}</a>
                     @if ($item->catProductChild->count() > 0)

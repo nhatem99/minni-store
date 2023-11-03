@@ -78,17 +78,17 @@ class AdminProductController extends Controller {
             [
                 'name' => 'required|unique:products|min:8',
                 'feature_image' => 'required|image',
-                'image_product' => 'required',
-                'image_product.*' => 'mimes:jpeg,jpg,png,gif,csv',
+                // 'image_product' => 'required',
+                'image_product.*' => 'mimes:jpeg,jpg,png,gif,csv,webp',
                 'price' => 'required|digits_between:5,10',
                 'discount' => 'numeric',
                 'description' => 'required',
                 'category_product_id' => 'required',
                 'name_color.*' => 'alpha',
                 'image_color_path' => 'required',
-                'image_color_path.*' => 'mimes:jpeg,jpg,png,gif,csv',
+                'image_color_path.*' => 'mimes:jpeg,jpg,png,gif,csv,webp',
                 'name_size' =>'required',
-                'quantity' => 'required,numeric'
+                'quantity' => 'required|numeric'
             ],
             [
                 'required' => ':attribute không được để trống',
@@ -221,7 +221,7 @@ class AdminProductController extends Controller {
         $request->validate(
             [
                 'name' => 'required|min:8|unique:products,name,' . $id . ',id',
-                'image_product.*' => 'mimes:jpeg,jpg,png,gif,csv',
+                'image_product.*' => 'mimes:jpeg,jpg,png,gif,csv,webp',
                 'price' => 'required|digits_between:5,10',
                 'discount' => 'numeric',
                 'quantity' => 'numeric',

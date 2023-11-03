@@ -442,6 +442,7 @@
     position: relative;
     border-radius: 0px;
     padding: 0 19px;
+    text-transform: uppercase;
 }
 
 .header-nav > ul.item_big > li.nav-item:first-child {
@@ -722,6 +723,12 @@ a:hover {
     text-transform: uppercase;
     font-size: 14px;
 }
+.CartHeaderContainer .cart--empty-message {
+    /* text-align: center; */
+    text-align: -webkit-center;
+    padding: 20px 0;
+}
+
 body::-webkit-scrollbar-thumb {
     background-image: linear-gradient(-45deg, #6a5af9, #d66efd);
     border-radius: 50px;
@@ -731,4 +738,76 @@ body::-webkit-scrollbar-track {
 }
 body::-webkit-scrollbar {
     width: 10px;
+}
+.header-nav > ul.item_big > li.nav-item:hover > ul {
+    display: block;
+}
+.mega_type_1_group,
+.mega_type_2_group {
+    width: 1170px;
+    padding: 20px 0;
+}
+.mega_menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    z-index: 999;
+    padding-top: 20px;
+    background: #efefef;
+}
+.mega_type_1_group .parrent-mega,
+.mega_type_2_group .parrent-mega {
+    float: left;
+    width: calc(100% - 250px);
+}
+.header-nav li li {
+    position: relative;
+}
+.header-nav > ul.item_big > li.nav-item.has-mega {
+    position: static !important;
+}
+.mega_type_1_group ul,
+.mega_type_2_group ul {
+    width: 100%;
+    padding: 0;
+}
+.mega_type_1_group .parrent-mega>ul li.li-item-1, .mega_type_2_group .parrent-mega>ul li.li-item-1 {
+    width: 25%;
+    display: inline-block;
+    padding: 0 0 0 20px;
+    vertical-align: top;
+    font-size: 14px;
+}
+.mega_type_1_group ul .li-item-1 .title-m, .mega_type_2_group ul .li-item-1 .title-m {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.mega_menu a {
+    color: #000;
+}
+
+.mega_type_1_group ul .li-item-1 ul li, .mega_type_2_group ul .li-item-1 ul li {
+    margin-bottom: 10px;
+    display: block;
+
+    font-size: 14px;
+}
+.mega_type_1_group ul .li-item-1 .a3, .mega_type_2_group ul .li-item-1 .a3 {
+    font-size: 14px;
+    display: flex;
+    font-weight: 500;
+    align-items: center;
+}
+.banner_2 {
+    float: right;
+    width: 200px;
+    margin-right: 32px;
+    border-radius: 8px;
+}
+.banner_2 img {
+    border-radius: 8px;
 }

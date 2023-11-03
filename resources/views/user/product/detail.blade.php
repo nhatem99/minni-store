@@ -30,15 +30,16 @@
                             </li>
                         @endforeach
                         @foreach ($productImgs as $item)
-                            <li data-thumb="{{ asset($item->image_product) }}"
-                                data-src="{{ asset($item->image_product) }}">
+                            <li data-thumb="{{ asset($item->image_product) }}" data-src="{{ asset($item->image_product) }}">
                                 <img class="img-thumbnail img-product" src="{{ asset($item->image_product) }}" />
                             </li>
                         @endforeach
                     </ul>
                 </div>
+      
+            
                 <div class="thumb-respon-wp fl-left">
-                    <img src="{{ asset('public/users/images/test6.jpg') }}" alt="">
+                    <img id="thumb-mobile" src="{{ asset($productColors[0]['image_color_path']) }}" alt="">
                 </div>
                 <div class="info fl-right">
                     <h3 class="product-name">{{ $product->name }}</h3>
@@ -57,21 +58,25 @@
                             </div>
                         @endforeach
                     </div>
-                    <div class="product-size d-flex">
+                    <div class="list-product-size" style="margin-bottom: 17px">
                         @foreach ($productSizes as $key => $item)
-                            <input type="radio" {{ $key == 0 ? 'checked' : '' }} name="check-size-detail"
-                                id="check-size-detail" value="{{ $item->id }}" />
-                            <p>{{ $item->size->name }}</p>
+                            <div class="product-size active">
+                                <input type="radio" id="swatch-{{ $item->id }}" {{ $key == 0 ? 'checked' : '' }}
+                                    name="check-size-detail" value="{{ $item->id }}">
+                                <label title="{{ $item->size->name }}" for="swatch-{{ $item->id }}">
+                                    {{ $item->size->name }}
+                                </label>
+                            </div>
                         @endforeach
                     </div>
                     <div class="num-product">
                         <span class="title">Sản phẩm: </span>
-                        @if($product->quantity > 0)
-                        <span class="status">Còn {{  $product->quantity }} sản phẩm</span>
+                        @if ($product->quantity > 0)
+                            <span class="status">Còn {{ $product->quantity }} sản phẩm</span>
                         @else
-                        <span class="sold-out">Hết hàng</span>
+                            <span class="sold-out">Hết hàng</span>
                         @endif
-                        
+
                     </div>
                     <p class="price">{{ number_format($product->price, 0, '', '.') }}đ</p>
                     <div id="num-order-detail-wp">
@@ -79,8 +84,16 @@
                         <input type="text" name="num-order" value="1" class="num-order" disabled="disabled">
                         <a title="" class="plus"><i class="fa fa-plus"></i></a>
                     </div>
-                    <p class="add-cart text-center"><a href="{{ route('cart.add', $product->id) }}" title="Đặt hàng"
-                            data-name="{{ $item->name }}" data-account="{{ Auth::guard('account')->check() ? true : false }}" data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1: 0}}" data-quantity="{{ $product->quantity }}">Thêm giỏ hàng</a></p>
+                    <p class="add-cart text-center">
+                        <a href="{{ route('cart.add', $product->id) }}" title="Đặt hàng" data-name="{{ $item->name }}"
+                            data-account="{{ Auth::guard('account')->check() ? true : false }}"
+                            data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1 : 0 }}"
+                            data-quantity="{{ $product->quantity }}">
+                            <i style="font-size: 17px; margin-right:5px" class="fa fa-shopping-cart"
+                                aria-hidden="true"></i><span>Thêm giỏ
+                                hàng</span>
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -135,10 +148,13 @@
                             </div>
                             <div class="action clearfix">
                                 <a href="{{ route('cart.addProduct', ['id' => $item->id]) }}" title="Thêm giỏ hàng"
-                                    class="add-cart fl-left" data-url="{{ route('cart.add', ['id' => $item->id]) }}" data-account="{{ Auth::guard('account')->check() ? true : false }}" data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1: 0}}" data-quantity="{{ $product->quantity }}">Thêm
+                                    class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}"
+                                    data-account="{{ Auth::guard('account')->check() ? true : false }}"
+                                    data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1 : 0 }}"
+                                    data-quantity="{{ $product->quantity }}">
+                                    <i style="font-size: 17px; margin-right:5px" class="fa fa-shopping-cart"
+                                        aria-hidden="true"></i>Thêm
                                     giỏ hàng</a>
-                                <a href="{{ route('product.detail', ['slugCategory' => $item->category->catProductParent->slug, 'slugProduct' => $item->slug]) }}"
-                                    title="Mua ngay" class="buy-now fl-right">Xem chi tiết</a>
                             </div>
                         </li>
                     @endforeach

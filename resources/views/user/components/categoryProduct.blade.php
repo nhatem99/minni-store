@@ -4,7 +4,7 @@
     </div>
     <div class="secion-detail">
         <ul class="list-item">
-            @foreach ($categoryProductParent as $item)
+            @foreach ($categoryProductParentMale as $item)
                 <li>
                     <a href="{{ route('user.category', $item->slug) }}" title="">{{ $item->name }}</a>
                     @if ($item->catProductChild->count() > 0)

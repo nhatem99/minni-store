@@ -24,32 +24,37 @@ class UserHomeController extends Controller {
     function index() {
 
         $sliders = Slider::where('status', 1)->latest()->get();
-        $products = Product::where('featured', 1)->where('status', 1)->latest()->take(8)->get();
-        $product_image = ProductImage::all();
-        //Product Ịphone
-        $catThunFormRong = CategoryProduct::where('parent_id', function ($query) {
-            $query->select('id')->from('category_products')->where('slug', '=', 'ao-thun');
-        })->get();
-        foreach ($catThunFormRong as $item) {
-            $catShirtIds[] = $item->id;
-        }
-        $productShirt1 = Product::whereIn('category_product_id', $catShirtIds)->where('status', 1)->latest()->take(8)->get();
+        // $products = Product::where('featured', 1)->where('status', 1)->latest()->take(8)->get();
+        // $product_image = ProductImage::all();
+        // //Product Ịphone
+        // $catThunFormRong = CategoryProduct::where('parent_id', function ($query) {
+        //     $query->select('id')->from('category_products')->where('slug', '=', 'ao-thun');
+        // })->get();
+        // foreach ($catThunFormRong as $item) {
+        //     $catShirtIds[] = $item->id;
+        // }
+        // $productShirt1 = Product::whereIn('category_product_id', $catShirtIds)->where('status', 1)->latest()->take(8)->get();
 
-        //Product laptop
-        $catSoMi = CategoryProduct::where('parent_id', function ($query) {
-            $query->select('id')->from('category_products')->where('slug', '=', 'ao-so-mi');
-        })->get();
-        foreach ($catSoMi as $item) {
-            $catSoMiIds[] = $item->id;
-        }
-        $productShirt2 = Product::whereIn('category_product_id', $catSoMiIds)->where('status', 1)->latest()->take(8)->get();
-        $quanJean = CategoryProduct::where('parent_id', function ($query) {
-            $query->select('id')->from('category_products')->where('slug', '=', 'quan-jean');
-        })->get();
-        foreach ($quanJean as $item) {
-            $quanJeanIds[] = $item->id;
-        }
-        $productQuanJean = Product::whereIn('category_product_id', $quanJeanIds)->where('status', 1)->latest()->take(8)->get();
+        // //Product laptop
+        // $catSoMi = CategoryProduct::where('parent_id', function ($query) {
+        //     $query->select('id')->from('category_products')->where('slug', '=', 'ao-so-mi');
+        // })->get();
+        // foreach ($catSoMi as $item) {
+        //     $catSoMiIds[] = $item->id;
+        // }
+        // $productShirt2 = Product::whereIn('category_product_id', $catSoMiIds)->where('status', 1)->latest()->take(8)->get();
+        // $quanJean = CategoryProduct::where('parent_id', function ($query) {
+        //     $query->select('id')->from('category_products')->where('slug', '=', 'quan-jean');
+        // })->get();
+        // foreach ($quanJean as $item) {
+        //     $quanJeanIds[] = $item->id;
+        // }
+        // $productQuanJean = Product::whereIn('category_product_id', $quanJeanIds)->where('status', 1)->latest()->take(8)->get();
+        $products = [];
+        $productShirt1 = [];
+        $productShirt2 = [];
+        $product_image = [];
+        $productQuanJean = [];
         return view('user.index', compact('sliders', 'products', 'productShirt1', 'productShirt2','product_image','productQuanJean'));
     }
 

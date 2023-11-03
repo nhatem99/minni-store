@@ -21,12 +21,12 @@ class AdminCategoryProductController extends Controller {
     function postAdd(Request $request) {
         $request->validate(
             [
-                'name' => 'required|min:3|unique:category_products',
+                'name' => 'required|min:2|unique:category_products,slug',
             ],
             [
                 'required' => 'Tên danh mục không được để trống',
                 'unique' => 'Tên danh mục đã tồn tại',
-                'min' => 'Tên danh mục chứa ít nhất 3 ký tự'
+                'min' => 'Tên danh mục chứa ít nhất 2 ký tự'
             ]
         );
 
@@ -48,12 +48,12 @@ class AdminCategoryProductController extends Controller {
     function postUpdate($id, Request $request) {
         $request->validate(
             [
-                'name' => 'required|min:3|unique:category_products,name,' . $id . ',id',
+                'name' => 'required|min:2|unique:category_products,slug,' . $id . ',id',
             ],
             [
                 'required' => 'Tên danh mục không được để trống',
                 'unique' => 'Tên danh mục đã tồn tại',
-                'min' => 'Tên danh mục chứa ít nhất 3 ký tự'
+                'min' => 'Tên danh mục chứa ít nhất 2 ký tự'
             ]
         );
 

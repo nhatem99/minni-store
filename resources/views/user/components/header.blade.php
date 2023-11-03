@@ -157,10 +157,71 @@
                         <li class="nav-item">
                             <a href="{{ route('user.index') }}" title="">Trang chủ</a>
                         </li>
+
+                        <li class="nav-item has-mega">
+                            <a href="{{ route('user.category', 'ao-nam') }}" title="">NAM</a>
+                            <ul class="mega_type_2_group mega_menu">
+                                <li class="parrent-mega">
+                                    <ul>
+                                        @foreach ($categoryProductParentMale as $item)
+                                            <li class="li-item-1">
+                                                <a href="{{ route('user.category', $item->slug) }}"
+                                                    class="title-m caret-down"
+                                                    title="{{ $item->name }}">{{ $item->name }}</a>
+                                                <ul>
+                                                    <li>
+                                                        @if ($item->catProductChild->count() > 0)
+                                                            @include(
+                                                                'user.components.categoryProductChild',
+                                                                ['categoryProductChild' => $item->catProductChild]
+                                                            )
+                                                        @endif
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                                <li class="banner banner_2"><a href=""><img class="lazyload loaded"
+                                            src="//bizweb.dktcdn.net/thumb/grande/100/438/408/themes/919724/assets/link_image_4_1.jpg?1698978099571"
+                                            data-src="//bizweb.dktcdn.net/thumb/grande/100/438/408/themes/919724/assets/link_image_4_1.jpg?1698978099571"
+                                            alt="NAM" data-was-processed="true"></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-mega">
+                            <a href="{{ route('user.category', 'ao-nam') }}" title="">Nữ</a>
+                            <ul class="mega_type_2_group mega_menu">
+                                <li class="parrent-mega">
+                                    <ul>
+                                        @foreach ($categoryProductParentFeMale as $item)
+                                            <li class="li-item-1">
+                                                <a href="{{ route('user.category', $item->slug) }}"
+                                                    class="title-m caret-down"
+                                                    title="{{ $item->name }}">{{ $item->name }}</a>
+                                                <ul>
+                                                    <li>
+                                                        @if ($item->catProductChild->count() > 0)
+                                                            @include(
+                                                                'user.components.categoryProductChild',
+                                                                ['categoryProductChild' => $item->catProductChild]
+                                                            )
+                                                        @endif
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                                <li class="banner banner_2"><a href=""><img class="lazyload loaded"
+                                            src="//bizweb.dktcdn.net/thumb/grande/100/438/408/themes/919724/assets/link_image_4_1.jpg?1698978099571"
+                                            data-src="//bizweb.dktcdn.net/thumb/grande/100/438/408/themes/919724/assets/link_image_4_1.jpg?1698978099571"
+                                            alt="NAM" data-was-processed="true"></a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('user.blog') }}" title="">Blog</a>
                         </li>
-
+                        
                         @foreach ($pages as $item)
                             <li class="nav-item">
                                 <a href="{{ route('user.page', ['id' => $item->id]) }}"
@@ -223,8 +284,10 @@
                                         class="checkout fl-right">Thanh toán</a>
                                 </div>
                             @else
-                                <div id="cart-empty">
-                                    <p class="desc">Không có sản phẩm trong giỏ hàng</p>
+                                <div class="cart--empty-message">
+                                    <img src="//bizweb.dktcdn.net/100/438/408/themes/919724/assets/blank_cart.svg?1698813703985"
+                                        alt="cart">
+                                    <p>Giỏ hàng của bạn trống</p>
                                 </div>
                             @endif
 

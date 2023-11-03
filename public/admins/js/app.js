@@ -15,8 +15,16 @@ $(document).ready(function () {
         );
     });
 
-    $("#avatar").click(function () {
-        $("#img").click();
+    $("#avatar").click(function (e) {
+        document.querySelector("[name='feature_image']").click();
+    });
+    $("#avatar-2").click(function () {
+        document.querySelector("[name='feature_image2']").click();
+        
+    });
+    $("#avatar-3").click(function () {
+        document.querySelector("[name='image_product']").click();
+        
     });
 
     $(".alert")
@@ -33,7 +41,8 @@ function changeImg(input) {
         //Sự kiện file đã được load vào website
         reader.onload = function (e) {
             //Thay đổi đường dẫn ảnh
-            $("#avatar").attr("src", e.target.result);
+            const data_name = $(input).data('img');
+            $('#'+ data_name).attr("src", e.target.result);
         };
         reader.readAsDataURL(input.files[0]);
     }

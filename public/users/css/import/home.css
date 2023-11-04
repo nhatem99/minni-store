@@ -196,7 +196,11 @@
     font-family: "Roboto Medium";
     margin: 15px 0px 5px 0px;
     line-height: normal;
-    /* height:45px; */
+    height:35px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
     /* overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; */

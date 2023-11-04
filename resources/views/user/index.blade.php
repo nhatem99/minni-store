@@ -1,5 +1,5 @@
 @extends('layouts.user')
-@section('title', 'Minni Store')
+@section('title', 'Yolo Store')
 @section('main_class', 'home-page')
 @section('content')
     <div class="main-content fl-right">
@@ -7,7 +7,7 @@
         @include('user.components.slider')
         {{-- endslider --}}
         <div class="section" id="support-wp">
-            <div class="section-detail d-none d-md-block">
+            <div class="section-detail">
                 <ul class="list-item clearfix">
                     <li>
                         <div class="thumb">
@@ -100,7 +100,7 @@
         </div>
         {{-- End --}}
 
-        {{-- Ao thun --}}
+        {{-- Điện thoại --}}
         <div class="section" id="list-product-wp">
             <div class="section-head">
                 <a href="{{ route('user.category', ['slugCategory' => 'ao-thun']) }}" class="section-title">Áo Thun</a>
@@ -151,57 +151,7 @@
             </div>
         </div>
         {{-- end --}}
-        {{-- Ao thun Polo --}}
-        <div class="section" id="list-product-wp">
-            <div class="section-head">
-                <a href="{{ route('user.category', ['slugCategory' => 'ao-thun']) }}" class="section-title">Áo Thun</a>
-            </div>
-            <div class="section-detail">
-                <ul class="list-item clearfix">
-                    @foreach ($productShirtPolo as $item)
-                        <li>
-                            @if ($item->discount > 0)
-                                <div class="sale-off">
-                                    <span class="sale-off-percent">{{ $item->discount }}%</span>
-                                    <span class="sale-off-label">GIẢM</span>
-                                </div>
-                            @endif
-                            <a href="{{ route('product.detail', ['slugCategory' => $item->category->catProductParent->slug, 'slugProduct' => $item->slug]) }}"
-                                title="" class="thumb">
-                                <div class="product_image">
-                                    <img src="{{ asset($item->feature_image) }}">
-                                    @if ($item->feature_image2)
-                                        <img src="{{ asset($item->feature_image2) }}">
-                                    @endif
-                                </div>
-                            </a>
-                            <a href="{{ route('product.detail', ['slugCategory' => $item->category->catProductParent->slug, 'slugProduct' => $item->slug]) }}"
-                                title="" class="product-name">{{ $item->name }}</a>
-                            <div class="price">
-                                @if ($item->discount)
-                                    @php
-                                        $discount = $item->price - ($item->price * $item->discount) / 100;
-                                    @endphp
-                                    <span class="new">{{ number_format($discount, 0, '', '.') }}đ</span>
-                                    <span class="old">{{ number_format($item->price, 0, '', '.') }}đ</span>
-                                @else
-                                    <span class="new">{{ number_format($item->price, 0, '', '.') }}đ</span>
-                                @endif
-                            </div>
-                            <div class="action clearfix">
-                                <a href="{{ route('cart.addProduct', ['id' => $item->id]) }}" title="Thêm giỏ hàng"
-                                    class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}" data-account="{{ Auth::guard('account')->check() ? true : false }}" data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1: 0}}" data-quantity="{{ $item->quantity }}"><i style="font-size: 17px; margin-right:5px"
-                                    class="fa fa-shopping-cart" aria-hidden="true"></i><span>Thêm giỏ
-                                    hàng</span></a>
-                                {{-- <a href="{{ route('product.detail', ['slugCategory' => $item->category->catProductParent->slug, 'slugProduct' => $item->slug]) }}"
-                                    title="Mua ngay" class="buy-now fl-right">Xem chi tiết</a> --}}
-                            </div>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-        {{-- end --}}
+
         {{-- Áo sơ mi --}}
         <div class="section" id="list-product-wp">
             <div class="section-head">

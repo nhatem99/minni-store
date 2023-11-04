@@ -9,7 +9,6 @@
 .main-content {
     width: 75%;
     margin-left: 2%;
-    margin-top: 20px;
 }
 .sidebar {
     width: 23%;
@@ -24,7 +23,7 @@
 #banner-wp,
 #filter-product-wp {
     border: 1px solid #ececec;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 #category-product-wp .section-title,
 #selling-wp .section-title,

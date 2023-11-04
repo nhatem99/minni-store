@@ -125,7 +125,7 @@
                     src="//bizweb.dktcdn.net/100/438/408/themes/919724/assets/menu.jpg?1698661561550">
             </div>
             <div class="logo" style="flex: 1; padding-left: 20px;">
-                <a href="{{ route('user.index') }}">
+                <a href="/">
                     <img src="//bizweb.dktcdn.net/100/438/408/themes/919724/assets/logo.svg?1698661561550">
                 </a>
             </div>
@@ -183,8 +183,8 @@
                                     </ul>
                                 </li>
                                 <li class="banner banner_2"><a href=""><img class="lazyload loaded"
-                                            src="{{asset("public/uploads/product/img2/12\ao-polo-cafe-apm3635-gre-11-yodyvn.webp")}}"
-                                            data-src="{{asset("public/uploads/product/img2/12\ao-polo-cafe-apm3635-gre-11-yodyvn.webp")}}"
+                                            src="//bizweb.dktcdn.net/thumb/grande/100/438/408/themes/919724/assets/link_image_4_1.jpg?1698978099571"
+                                            data-src="//bizweb.dktcdn.net/thumb/grande/100/438/408/themes/919724/assets/link_image_4_1.jpg?1698978099571"
                                             alt="NAM" data-was-processed="true"></a></li>
                             </ul>
                         </li>
@@ -213,8 +213,8 @@
                                     </ul>
                                 </li>
                                 <li class="banner banner_2"><a href=""><img class="lazyload loaded"
-                                            src="{{asset('public/uploads/product/12\ao-polo-the-thao-nu-san6026-nav-6.webp')}}"
-                                            data-src="{{asset('public/uploads/product/12\ao-polo-the-thao-nu-san6026-nav-6.webp')}}"
+                                            src="//bizweb.dktcdn.net/thumb/grande/100/438/408/themes/919724/assets/link_image_4_1.jpg?1698978099571"
+                                            data-src="//bizweb.dktcdn.net/thumb/grande/100/438/408/themes/919724/assets/link_image_4_1.jpg?1698978099571"
                                             alt="NAM" data-was-processed="true"></a></li>
                             </ul>
                         </li>

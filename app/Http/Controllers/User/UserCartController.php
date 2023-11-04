@@ -252,9 +252,8 @@ class UserCartController extends Controller {
             
             //Send Mail
             Mail::send('user.mail.orderConfirmation', $data, function ($message) use ($emailCustomer, $nameCustomer) {
-                $message->from('hoangvuminhnhat1@gmail.com', 'YOLO');
                 $message->to($emailCustomer, $nameCustomer);
-                $message->subject('Xác nhận đơn hàng cửa hàng YOLO');
+                $message->subject('Xác nhận đơn hàng cửa hàng MINNI');
             });
 
             Cart::destroy();

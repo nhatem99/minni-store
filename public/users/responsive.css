@@ -466,6 +466,21 @@
     #info-company .title {
         font-size: 21px;
     }
+    #detail-product-wp .info .product-name {
+        display: none;
+    }
+    #detail-product-wp .product-name-mobile{
+        display: block;
+    }
+}
+
+@media screen and (min-width: 414px) {
+    /* #detail-product-wp .info .product-name {
+        display: none;
+    } */
+    #detail-product-wp .product-name-mobile{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 375px) {

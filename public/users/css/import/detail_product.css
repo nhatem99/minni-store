@@ -16,7 +16,7 @@
     padding: 15px;
 }
 .section-detail .lSAction>a{
-    z-index: 22list-product-size;
+    z-index: 22
 }
 #main-thumb .zoomWrapper img,
 #detail-product-wp .owl-carousel .owl-item a img {
@@ -65,7 +65,7 @@
 .thumb-respon-wp {
     display: none;
 }
-#detail-product-wp .info .product-name {
+#detail-product-wp .info .product-name, .product-name-mobile {
     font-size: 24px;
     padding-bottom: 15px;
     margin-bottom: 20px;

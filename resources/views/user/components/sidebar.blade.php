@@ -1,6 +1,6 @@
 <div class="sidebar fl-left">
     {{-- categoryProduct --}}
-    @include('user.components.categoryProduct')
+    {{-- @include('user.components.categoryProduct') --}}
     {{-- endCategoryProduct --}}
     <div class="section" id="selling-wp">
         <div class="section-head">

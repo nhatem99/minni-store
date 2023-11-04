@@ -37,7 +37,7 @@
                     </ul>
                 </div>
       
-            
+                <h3 class="product-name-mobile">{{ $product->name }}</h3>
                 <div class="thumb-respon-wp fl-left">
                     <img id="thumb-mobile" src="{{ asset($productColors[0]['image_color_path']) }}" alt="">
                 </div>

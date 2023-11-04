@@ -17,48 +17,50 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class UserHomeController extends Controller {
+class UserHomeController extends Controller
+{
     //
-    function __construct() {
+    function __construct()
+    {
     }
-    function index() {
+    function index()
+    {
 
         $sliders = Slider::where('status', 1)->latest()->get();
-        // $products = Product::where('featured', 1)->where('status', 1)->latest()->take(8)->get();
-        // $product_image = ProductImage::all();
-        // //Product Ịphone
-        // $catThunFormRong = CategoryProduct::where('parent_id', function ($query) {
-        //     $query->select('id')->from('category_products')->where('slug', '=', 'ao-thun');
-        // })->get();
-        // foreach ($catThunFormRong as $item) {
-        //     $catShirtIds[] = $item->id;
-        // }
-        // $productShirt1 = Product::whereIn('category_product_id', $catShirtIds)->where('status', 1)->latest()->take(8)->get();
+        $products = Product::where('featured', 1)->where('status', 1)->latest()->take(30)->get();
+        $product_image = ProductImage::all();
 
-        // //Product laptop
-        // $catSoMi = CategoryProduct::where('parent_id', function ($query) {
-        //     $query->select('id')->from('category_products')->where('slug', '=', 'ao-so-mi');
-        // })->get();
-        // foreach ($catSoMi as $item) {
-        //     $catSoMiIds[] = $item->id;
-        // }
-        // $productShirt2 = Product::whereIn('category_product_id', $catSoMiIds)->where('status', 1)->latest()->take(8)->get();
-        // $quanJean = CategoryProduct::where('parent_id', function ($query) {
-        //     $query->select('id')->from('category_products')->where('slug', '=', 'quan-jean');
-        // })->get();
-        // foreach ($quanJean as $item) {
-        //     $quanJeanIds[] = $item->id;
-        // }
-        // $productQuanJean = Product::whereIn('category_product_id', $quanJeanIds)->where('status', 1)->latest()->take(8)->get();
-        $products = [];
-        $productShirt1 = [];
-        $productShirt2 = [];
-        $product_image = [];
-        $productQuanJean = [];
-        return view('user.index', compact('sliders', 'products', 'productShirt1', 'productShirt2','product_image','productQuanJean'));
+        // Get Ao thun
+        $catThun = CategoryProduct::select('id')->where('slug', '=', 'ao-thun-nam')->orWhere('slug', '=', 'ao-thun-nu')->limit(16)->get();
+        foreach ($catThun as $item) {
+            $catShirtIds[] = $item->id;
+        }
+        $productShirt1 = Product::whereIn('category_product_id', $catShirtIds)->where('status', 1)->latest()->take(16)->get();
+
+        // Get Ao thun Polo
+        $catThunPolo = CategoryProduct::select('id')->where('slug', '=', 'ao-polo-nam')->orWhere('slug', '=', 'ao-polo-nu')->limit(16)->get();
+        foreach ($catThunPolo as $item) {
+            $catShirtPoloIds[] = $item->id;
+        }
+        $productShirtPolo = Product::whereIn('category_product_id', $catShirtPoloIds)->where('status', 1)->latest()->take(16)->get();
+
+        //Product Somi
+        $catSoMi = CategoryProduct::select('id')->from('category_products')->where('slug', '=', 'ao-so-mi-nam')->orWhere('slug', '=', 'ao-so-mi-nu')->get();
+        foreach ($catSoMi as $item) {
+            $catSoMiIds[] = $item->id;
+        }
+        $productShirt2 = Product::whereIn('category_product_id', $catSoMiIds)->where('status', 1)->latest()->take(16)->get();
+
+        $quanJean = CategoryProduct::select('id')->from('category_products')->where('slug', '=', 'quan-jeans-nam')->orWhere('slug', '=', 'quan-jeans-nu')->get();
+        foreach ($quanJean as $item) {
+            $quanJeanIds[] = $item->id;
+        }
+        $productQuanJean = Product::whereIn('category_product_id', $quanJeanIds)->where('status', 1)->latest()->take(8)->get();
+        return view('user.index', compact('sliders', 'products', 'productShirt1', 'productShirt2', 'product_image', 'productQuanJean', 'productShirtPolo'));
     }
 
-    function page($id) {
+    function page($id)
+    {
         $page = Page::find($id);
         return view('user.page', compact('page'));
     }

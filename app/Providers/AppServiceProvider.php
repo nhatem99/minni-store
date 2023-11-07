@@ -7,7 +7,7 @@ use App\Models\OrderDetail;
 use App\Models\Page;
 use App\Models\Product;
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Facades\URL;
 class AppServiceProvider extends ServiceProvider {
     /**
      * Register any application services.
@@ -39,5 +39,8 @@ class AppServiceProvider extends ServiceProvider {
             ->limit(8)
             ->get();
         view()->share($data);
+        if(app()->environment('remote')){
+            URL::forceScheme('https');
+        }
     }
 }

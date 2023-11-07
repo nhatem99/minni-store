@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use Laravel\Socialite\Facades\Socialite;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +25,28 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+Route::get('auth/google/callback', function(){
+    $user = Socialite::driver('google')->user();
+    dd($user);
+});
+Route::get('auth/google', function(){
+    return Socialite::driver('google')->redirect();
+});
+Route::get('auth/facebook/callback', function(){
+    // $user = Socialite::dirve('google')->user();
+    return 'callback login facebook';
 
+});
+Route::get('auth/facebook', function(){
+    // $user = Socialite::dirve('google')->user();
+    return Socialite::driver('facebook')
+    ->redirect();
+
+});
+Route::get('chinh-sach-rieng-tu', function(){
+   return '<h1>Chinh sach ring tu</h1>';
+
+});
 Route::group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
     Route::get('admin', 'AdminDashboardController@show')->name('dashboard');
 

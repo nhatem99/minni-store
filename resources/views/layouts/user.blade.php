@@ -15,13 +15,14 @@
     <link href="{{ asset('public/users/style.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('public/users/css/lightgallery.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('public/users/css/lightslider.css') }}" rel="stylesheet" type="text/css" />
+    @yield('css')
     <link href="{{ asset('public/users/responsive.css') }}" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300&display=swap"
         rel="stylesheet">
-    @yield('css')
+
 
 </head>
 

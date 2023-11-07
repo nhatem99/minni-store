@@ -18,6 +18,9 @@ $(document).ready(function () {
     $("#avatar").click(function (e) {
         document.querySelector("[name='feature_image']").click();
     });
+    $("#avatar-banner").click(function (e) {
+        $("#input-banner").click();
+    });
     $("#avatar-2").click(function () {
         document.querySelector("[name='feature_image2']").click();
         

@@ -177,3 +177,43 @@ function tab() {
     $("#tab-menu li:first-child").addClass("show");
     $(".tabItem:first-child").show();
 }
+$(".sibar img").click(function () {
+    const menu_sidebar_mobile = $(".menu_sidebar_mobile");
+    menu_sidebar_mobile.css("transform", "translateX(0)");
+});
+$(".menu_sidebar_mobile .close_sidebar").click(function () {
+    const menu_sidebar_mobile = $(".menu_sidebar_mobile");
+    menu_sidebar_mobile.css("transform", "translateX(-100%)");
+});
+$(".item_child").click(function () {
+    var parent = $(this).parent();
+    var child = $(parent).children(".menu_item_child");
+    var sub_icon = $(this).children("button").children(".sub_icon");
+    var plus = sub_icon.data("plus");
+    var min = sub_icon.data("minus");
+    if ($(this).hasClass("active")) {
+        $(this).removeClass("active");
+        child.addClass("d-none");
+        sub_icon.attr("src", plus);
+    } else {
+        $(this).addClass("active");
+        child.removeClass("d-none");
+        sub_icon.attr("src", min);
+    }
+});
+$(".second_child_item").click(function () {
+    var parent = $(this).parent();
+    var child = $(parent).children(".menu_second_child ");
+    var sub_icon = $(this).children("button").children(".sub_icon_second");
+    var plus = sub_icon.data("plus");
+    var min = sub_icon.data("minus");
+    if ($(this).hasClass("active")) {
+        $(this).removeClass("active");
+        child.addClass("d-none");
+        sub_icon.attr("src", plus);
+    } else {
+        $(this).addClass("active");
+        child.removeClass("d-none");
+        sub_icon.attr("src", min);
+    }
+});

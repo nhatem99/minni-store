@@ -1,70 +1,150 @@
-	/* Coded with love by Mutiullah Samim */
-            body,
-            html {
-                        margin: 0;
-                        padding: 0;
-                        height: 100%;
-                        background: #60a3bc !important;
-            }
-            .user_card {
-                        height: 400px;
-                        width: 350px;
-                        margin-top: auto;
-                        margin-bottom: auto;
-                        background: #f39c12;
-                        position: relative;
-                        display: flex;
-                        justify-content: center;
-                        flex-direction: column;
-                        padding: 10px;
-                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                        border-radius: 5px;
 
-            }
-            .brand_logo_container {
-                        position: absolute;
-                        height: 170px;
-                        width: 170px;
-                        top: -75px;
-                        border-radius: 50%;
-                        background: #60a3bc;
-                        padding: 10px;
-                        text-align: center;
-            }
-            .brand_logo {
-                        height: 150px;
-                        width: 150px;
-                        border-radius: 50%;
-                        border: 2px solid white;
-            }
-            .form_container {
-                        margin-top: 100px;
-            }
-            .login_btn {
-                        width: 100%;
-                        background: #c0392b !important;
-                        color: white !important;
-            }
-            .login_btn:focus {
-                        box-shadow: none !important;
-                        outline: 0px !important;
-            }
-            .login_container {
-                        padding: 0 2rem;
-            }
-            .input-group-text {
-                        background: #c0392b !important;
-                        color: white !important;
-                        border: 0 !important;
-                        border-radius: 0.25rem 0 0 0.25rem !important;
-            }
-            .input_user,
-            .input_pass:focus {
-                        box-shadow: none !important;
-                        outline: 0px !important;
-            }
-            .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-                        background-color: #c0392b !important;
-            }
+#main-content-wp {
+    background: url(//bizweb.dktcdn.net/100/438/408/themes/919724/assets/bg_login.jpg?1699242260105)
+        bottom center no-repeat !important;
+    background-size: cover !important;
+    padding: 50px 0 !important;
+}
+.wp-inner{
+  padding: 0 !important;
+}
+.page-content-account .container,
+.container-fluid {
+    padding: unset;
+}
+.page-content-account .d-group {
+    width: 648px;
+    margin: 0 auto;
+    display: flex;
+    padding: 40px 0;
+    background: #fff;
+    max-width: 100%;
+}
+.page-content-account .left-col,
+.page-content-account .right-col {
+    background: #fff;
+    width: 100%;
+    padding: 0 107px;
+    border-right: 1px solid #dde1ef;
+    text-align: center;
+}
+.page-content-account .left-col h1,
+.page-content-account .left-col h2,
+.page-content-account .right-col h1,
+.page-content-account .right-col h2 {
+    font-family: "SVN-Gilroy Bold";
+    font-size: 26px;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    text-transform: unset;
+    text-align: center;
+    color: #fcaf17;
+    line-height: 1;
+    margin-bottom: 30px;
+}
+.page-content-account span {
+    color: #131382;
+}
+.page-content-account .left-col form,
+.page-content-account .right-col form {
+    margin: 0;
+    padding: 0;
+}
+.page-content-account .left-col p,
+.page-content-account .right-col p {
+    display: block;
+    text-align: center;
+    margin: 0;
+    line-height: 15px;
+}
+.page-content-account .left-col fieldset,
+.page-content-account .right-col fieldset {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.page-content-account .left-col fieldset input,
+.page-content-account .right-col fieldset input {
+    height: 48px;
+    line-height: 48px;
+    margin-bottom: 10px;
+    padding: 0 18px;
+    margin-bottom: 24px;
+}
+.page-content-account .left-col fieldset .showpass,
+.page-content-account .right-col fieldset .showpass {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 14px;
+    right: 20px;
+    background: url(showpass.svg) center center no-repeat;
+    cursor: pointer;
+}
+.page-content-account .left-col fieldset .errorPassText,
+.page-content-account .right-col fieldset .errorPassText {
+    position: absolute;
+    left: 0%;
+    bottom: 7%;
+    transform: translateX(6px);
+    color: #f5222d;
+    font-size: 12px;
+}
+.page-content-account .left-col .btn-login,
+.page-content-account .right-col .btn-login {
+    display: inline-block;
+    width: calc(50% - 5px);
+    height: 48px;
+    line-height: 48px;
+    background: #fcaf17;
+    color: #fff;
+    text-align: center;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 18px;
+    font-family: "SVN-Gilroy Bold";
+    margin-bottom: 10px;
+}
+.page-content-account .left-col p.forgot a:nth-child(1),
+.page-content-account .right-col p.forgot a:nth-child(1) {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fcaf17;
+}
+.page-content-account .left-col .loginOr,
+.page-content-account .right-col .loginOr {
+    background-color: #dde1e3;
+    height: 1px;
+    position: relative;
+    margin: 35px auto;
+}
+.social-login--facebooks {
+    text-align: center !important;
+    width: 100% !important;
+    float: left !important;
+    margin-bottom: 52px;
+}
+.page-signup-social-wrapper {
+    margin-bottom: 32px;
+}
+.page-signup-social {
+    padding: 0 12px;
+}
+.page-signup-social > a {
+    height: unset !important;
+}
+.page-signup-error {
+    margin-bottom: 24px !important;
+    text-align: left;
+}
+.page-signup-title-yellow {
+    color: #fcaf17 !important;
+}
+.page-signup-error * {
+    color: #F5222D !important;
+}

@@ -1,6 +1,6 @@
 <div class="sidebar fl-left">
     {{-- categoryProduct --}}
-    @include('user.components.categoryProduct')
+    {{-- @include('user.components.categoryProduct') --}}
     {{-- endCategoryProduct --}}
     {{-- filter product --}}
     <div class="section" id="filter-product-wp">
@@ -44,22 +44,6 @@
                                     name="r-price" value="tu-3-4-trăm" id="300000-400000"></td>
                             <td><label for="3000-400000">300.000đ - 400.000đ</label></td>
                         </tr>
-                        {{-- <tr>
-                            <td><input type="radio" {{ $checkPrice == 'tu-5-8-trieu' ? 'checked' : '' }}
-                                    name="r-price" value="tu-5-8-trieu" id="1000000-5000000"></td>
-                            <td><label for="1000000-5000000">5.000.000đ - 8.000.000đ</label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" {{ $checkPrice == 'tu-8-11-trieu' ? 'checked' : '' }}
-                                    name="r-price" value="tu-8-11-trieu" id="5000000-10000000">
-                            </td>
-                            <td><label for="5000000-10000000">8.000.000đ - 11.000.000đ</label></td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" {{ $checkPrice == 'tren-11-trieu' ? 'checked' : '' }}
-                                    name="r-price" value="tren-11-trieu" id="+10000000"></td>
-                            <td><label for="+10000000">Trên 11.000.000đ</label></td>
-                        </tr> --}}
                     </tbody>
                 </table>
                 <div class="text-center">
@@ -73,6 +57,28 @@
         <div class="section-detail">
             <a href="{{ route('user.index') }}" title="" class="thumb">
                 <img src="{{ asset('public/users/images/Banner1.png') }}" alt="">
+            </a>
+        </div>
+        <div class="section-detail">
+            <div class="title">
+                <a style="color: #11006F;" href="{{ route('user.category', 'ao-polo-nam') }}">
+                    Áo Polo Thoải Mái Mỗi Ngày
+                    </a>
+            </div>
+            <a href="{{ route('user.category', 'ao-polo-nam') }}" title="" class="thumb">
+                <img src="{{ asset('public/users/images/banner-sidebar-polo.webp') }}" alt="">
+
+            </a>
+        </div>
+        <div class="section-detail">
+            <div class="title">
+                <a style="color: #11006F;" href="{{ route('user.category', 'quan-jeans-nam') }}">
+                    Quần Jeans
+                    </a>
+            </div>
+            <a href="{{ route('user.category', 'quan-jeans-nam') }}" title="" class="thumb">
+                <img src="{{ asset('public/users/images/banner-sidebar-jeans.webp') }}" alt="">
+
             </a>
         </div>
     </div>

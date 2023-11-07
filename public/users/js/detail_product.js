@@ -1,7 +1,6 @@
 $(document).ready(function () {
     $(".desc .product-color").click(function () {
         const imgae_src = $(this).find("img")[0].currentSrc;
-        console.log('imgae_src', imgae_src);
         $("#thumb-mobile").attr("src", imgae_src)
         $(".desc .product-color.active").removeClass("active");
         $(this).find("input[name=check-color-detail]").prop("checked", true);
@@ -18,7 +17,6 @@ $(document).ready(function () {
         event.preventDefault();
         var account = $(this).data("account");
         var verify =  $(this).data("verify");
-        console.log(account);
         if(account == 1 ){
             if(verify == 1){
                 var quantity = $(this).data("quantity");

@@ -8,7 +8,7 @@
                 <div class="topbar-top__left">
                     <div id="logo">
                         <a href="{{ route('user.index') }}" title="" class=""><img
-                                src="{{ asset('public/users/images/Logo-2.png') }}" /></a>
+                                src="{{ asset('public/users/images/logo-5.png') }}" /></a>
                     </div>
 
                     <div id="search-wp" class="">
@@ -126,7 +126,7 @@
             </div>
             <div class="logo" style="flex: 1; padding-left: 20px;">
                 <a href="{{ route('user.index') }}">
-                    <img src="//bizweb.dktcdn.net/100/438/408/themes/919724/assets/logo.svg?1698661561550">
+                    <img src="{{ asset('public/users/images/logo-5.png') }}">
                 </a>
             </div>
             <div class="header-tool d-lg-none d-flex align-items-center">
@@ -143,6 +143,135 @@
                                 alt="giỏ hàng">
                         </a>
                         <span id="num" class="num-total">{{ Cart::count() }}</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="menu_sidebar_mobile d-lg-none">
+            <div class="sidebar_title">
+                <button class="close_sidebar">
+                    <img src="//bizweb.dktcdn.net/100/438/408/themes/919724/assets/closemenu.svg?1699146395362"
+                        alt="vecter_x">
+                </button>
+            </div>
+            <div class="sidebar_content">
+                <h6 class="item_trangchu"><a href="/yodyyeu" style="font-size: 20px; font-weight: bold;"><span
+                            style="color: #2A2A86">YO</span><span style="color: #FCAF17">DY</span> <span
+                            style="color: #FCAF17; font-style: italic;">Yêu</span></a></h6>
+                <div class="sidbar_item">
+                    <div class="item_child">
+                        <h6>
+                            NAM
+                        </h6>
+                        <button>
+                            <img class="sub_icon" src="{{ asset('public/users/images/plus.webp') }}"
+                                data-minus="{{ asset('public/users/images/minus.webp') }}"
+                                data-plus="{{ asset('public/users/images/plus.webp') }}" alt="plus">
+                        </button>
+                    </div>
+                    <div class="menu_item_child d-none">
+                        <div class="menuTask">
+                            @foreach ($categoryProductParentMale as $item)
+                                <div class="second_child">
+                                    <div class="second_child_item submenu">
+                                        <h6>
+                                            {{ $item->name }}</h6>
+                                        <button class="open_menu_second">
+                                            <img class="sub_icon_second"
+                                                src="{{ asset('public/users/images/plus.webp') }}"
+                                                data-minus="{{ asset('public/users/images/minus.webp') }}"
+                                                data-plus="{{ asset('public/users/images/plus.webp') }}"
+                                                alt="plus">
+                                        </button>
+                                    </div>
+                                    <div class="menu_second_child d-none">
+                                        @if ($item->catProductChild->count() > 0)
+                                            @foreach ($item->catProductChild as $productChild)
+                                                <a href="{{ route('user.category', $productChild->slug) }}"
+                                                    class="third_child resert_menu">
+                                                    {{ $productChild->name }}
+                                                </a>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="sidbar_item">
+                    <div class="item_child">
+                        <h6>
+                            NỮ
+                        </h6>
+                        <button>
+                            <img class="sub_icon" src="{{ asset('public/users/images/plus.webp') }}"
+                                data-minus="{{ asset('public/users/images/minus.webp') }}"
+                                data-plus="{{ asset('public/users/images/plus.webp') }}" alt="plus">
+                        </button>
+                    </div>
+                    <div class="menu_item_child d-none">
+                        <div class="menuTask">
+                            @foreach ($categoryProductParentFeMale as $item)
+                                <div class="second_child">
+                                    <div class="second_child_item submenu">
+                                        <h6>
+                                            {{ $item->name }}
+                                        </h6>
+                                        <button class="open_menu_second">
+                                            <img class="sub_icon_second"
+                                                src="{{ asset('public/users/images/plus.webp') }}"
+                                                data-minus="{{ asset('public/users/images/minus.webp') }}"
+                                                data-plus="{{ asset('public/users/images/plus.webp') }}"
+                                                alt="plus">
+                                        </button>
+                                    </div>
+                                    <div class="menu_second_child d-none">
+                                        @if ($item->catProductChild->count() > 0)
+                                            @foreach ($item->catProductChild as $productChild)
+                                                <a href="{{ route('user.category', $productChild->slug) }}"
+                                                    class="third_child resert_menu">
+                                                    {{ $productChild->name }}
+                                                </a>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="sidbar_item">
+                    <div class="item_child">
+                        <h6>
+                            <a href="{{ route('user.blog') }}" title="">BLOG</a>
+                        </h6>
+                    </div>
+                </div>
+                @foreach ($pages as $item)
+                    <div class="sidbar_item">
+                        <div class="item_child">
+                            <h6>
+                                <a href="{{ route('user.page', ['id' => $item->id]) }}"
+                                    title="{{ $item->title }}">{{ $item->title }}</a>
+                            </h6>
+                        </div>
+                    </div>
+                @endforeach
+                <div class="sidbar_contact">
+                    <div class="item_contact item_not_level">
+                        <img class="sub_icon" src="{{ asset('public/users/images/messages.svg') }}" alt="message">
+                        <a href="https://zalo.me/0377411577">Tư vấn qua Zalo</a>
+                    </div>
+                    <div class="item_contact item_not_level">
+                        <img class="sub_icon" src="{{ asset('public/users/images/vector_userui.svg') }}"
+                            alt="user">
+                        <a href="{{ route('user.login') }}">Đăng nhập</a>
+                    </div>
+                    <div class="item_contact item_not_level click_theo_doi">
+                        <img class="sub_icon" src="{{ asset('public/users/images/car.svg') }}" alt="delivery">
+                        <a href="/account/orders">Đơn hàng của tôi</a>
                     </div>
 
                 </div>
@@ -183,8 +312,8 @@
                                     </ul>
                                 </li>
                                 <li class="banner banner_2"><a href=""><img class="lazyload loaded"
-                                            src="{{asset("public/uploads/product/img2/12\ao-polo-cafe-apm3635-gre-11-yodyvn.webp")}}"
-                                            data-src="{{asset("public/uploads/product/img2/12\ao-polo-cafe-apm3635-gre-11-yodyvn.webp")}}"
+                                            src="{{ asset('public/uploads/product/img2/12\ao-polo-cafe-apm3635-gre-11-yodyvn.webp') }}"
+                                            data-src="{{ asset('public/uploads/product/img2/12\ao-polo-cafe-apm3635-gre-11-yodyvn.webp') }}"
                                             alt="NAM" data-was-processed="true"></a></li>
                             </ul>
                         </li>
@@ -213,15 +342,15 @@
                                     </ul>
                                 </li>
                                 <li class="banner banner_2"><a href=""><img class="lazyload loaded"
-                                            src="{{asset('public/uploads/product/12\ao-polo-the-thao-nu-san6026-nav-6.webp')}}"
-                                            data-src="{{asset('public/uploads/product/12\ao-polo-the-thao-nu-san6026-nav-6.webp')}}"
+                                            src="{{ asset('public/uploads/product/12\ao-polo-the-thao-nu-san6026-nav-6.webp') }}"
+                                            data-src="{{ asset('public/uploads/product/12\ao-polo-the-thao-nu-san6026-nav-6.webp') }}"
                                             alt="NAM" data-was-processed="true"></a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('user.blog') }}" title="">Blog</a>
                         </li>
-                        
+
                         @foreach ($pages as $item)
                             <li class="nav-item">
                                 <a href="{{ route('user.page', ['id' => $item->id]) }}"

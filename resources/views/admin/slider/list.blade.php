@@ -13,9 +13,9 @@
                         @csrf
                         <div class="form-group">
                             <label>Ảnh slider</label>
-                            <input id="img" type="file" name="image_path" class="form-control d-none"
+                            <input id="input-banner" type="file" name="image_path" class="form-control d-none"
                                 onchange="changeImg(this)">
-                            <img id="avatar" class="img-thumbnail d-block" width="250px"
+                            <img id="avatar-banner" class="img-thumbnail d-block" width="250px"
                                 src="{{ asset('public/admins/img/upload_img.png') }}">
                             @error('image_path')
                                 <small class="text-danger">{{ $message }}</small>

@@ -1,5 +1,20 @@
 var quantity = 0;
 $(document).ready(function () {
+    $(document).click(function (e) {
+        const modal_search = $("#results-search");
+        const inputSearch = $("#search");
+        // // Nếu click bên ngoài đối tượng container thì ẩn nó đi
+        if (
+            !modal_search.is(e.target) &&
+            modal_search.has(e.target).length === 0
+        ) {
+            modal_search.hide();
+        }
+        if (inputSearch.is(e.target)) {
+            console.log("vao day");
+            modal_search.show();
+        }
+    });
     $(".section-detail .list-item .add-cart").click(function (event) {
         event.preventDefault();
         var account = $(this).data("account");
@@ -37,7 +52,9 @@ $(document).ready(function () {
                                 );
 
                                 // Insert color product
-                                $(colorProduct).html(data.txt_color + data.txt_size);
+                                $(colorProduct).html(
+                                    data.txt_color + data.txt_size
+                                );
 
                                 //Show modal
                                 $("#modal-product-cart").modal("show");
@@ -53,9 +70,9 @@ $(document).ready(function () {
                                 });
                                 //Active size
                                 $(".desc .product-size").click(function () {
-                                    $(
-                                        ".desc .product-size.active"
-                                    ).removeClass("active");
+                                    $(".desc .product-size.active").removeClass(
+                                        "active"
+                                    );
                                     $(this)
                                         .find("input[name=check-size-cart]")
                                         .prop("checked", true);

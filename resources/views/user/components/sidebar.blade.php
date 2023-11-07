@@ -37,8 +37,35 @@
     </div>
     <div class="section" id="banner-wp">
         <div class="section-detail">
-            <a href="{{ route('user.index') }}" title="" class="thumb">
-                <img src="{{ asset('public/users/images/Banner1.jpg') }}" alt="">
+            <div class="title">
+                <a style="color: #11006F;" href="{{ route('user.category', 'ao-polo-nam') }}">
+                    Áo Polo Thoải Mái Mỗi Ngày
+                    </a>
+            </div>
+            <a href="{{ route('user.category', 'ao-polo-nam') }}" title="" class="thumb">
+                <img src="{{ asset('public/users/images/banner-sidebar-polo.webp') }}" alt="">
+
+            </a>
+        </div>
+        <div class="section-detail">
+            <div class="title">
+                <a style="color: #11006F;" href="{{ route('user.category', 'quan-jeans-nam') }}">
+                    Quần Jeans
+                    </a>
+            </div>
+            <a href="{{ route('user.category', 'quan-jeans-nam') }}" title="" class="thumb">
+                <img src="{{ asset('public/users/images/banner-sidebar-jeans.webp') }}" alt="">
+
+            </a>
+        </div>
+        <div class="section-detail">
+            <div class="title">
+                <a style="color: #11006F;" href="{{ route('user.category', 'ao-thun-the-thao-nu') }}">
+                    Quần Áo Sport
+                    </a>
+            </div>
+            <a href="{{ route('user.category', 'ao-thun-the-thao-nu') }}" title="" class="thumb">
+                <img src="{{ asset('public/users/images/banner-sidebar-sport.webp') }}" alt="">
 
             </a>
         </div>

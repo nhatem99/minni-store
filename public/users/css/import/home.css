@@ -21,10 +21,18 @@
     border: 1px solid #ececec;
 }
 #selling-wp,
-#banner-wp,
 #filter-product-wp {
     border: 1px solid #ececec;
     margin-top: 20px;
+}
+#banner-wp .title{
+    margin: 10px 0px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    color: #11006F;
 }
 #category-product-wp .section-title,
 #selling-wp .section-title,

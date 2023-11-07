@@ -1,8 +1,10 @@
 <?php
 
+use App\Account;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
+use App\Models\Accounts;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,9 +27,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+// Route::get('/userlogin', 'UserLoginController@index')->name('user.login');
+// Route::get('auth/google/callback',);
 Route::get('auth/google/callback', function(){
     $user = Socialite::driver('google')->user();
-    dd($user);
+    dd(Account::all());
+    // dd($user);
 });
 Route::get('auth/google', function(){
     return Socialite::driver('google')->redirect();

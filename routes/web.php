@@ -27,7 +27,7 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], func
 });
 Route::get('auth/google/callback', function(){
     $user = Socialite::driver('google')->user();
-    // dd($user);
+    dd($user);
 });
 Route::get('auth/google', function(){
     return Socialite::driver('google')->redirect();

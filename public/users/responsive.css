@@ -259,7 +259,25 @@
     #customer-info-wp .form-row .form-col {
         padding-right: 10px;
     }
-
+    .col-left-ac .block-account {
+        height: initial;
+    }
+    .title-head button {
+        right: 10px;
+        height: 30px;
+        line-height: 1;
+        padding: 0 10px;
+        top: 6px;
+    }
+    .page_customer_account .col-right-ac .name-account {
+        padding: 10px;
+    }
+    .page_customer_account .col-right-ac .name-account p {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-bottom: 15px;
+    }
     .page-content-account {
         padding: 0;
     }

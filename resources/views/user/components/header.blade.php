@@ -120,7 +120,7 @@
 
         </div>
         <div class="container container-mb d-flex d-lg-none">
-            <div class="sibar" style="flex: 1">
+            <div class="sibar" style="flex: 1; padding-left:10px">
                 <img style="width: 28px; height: 28px"
                     src="//bizweb.dktcdn.net/100/438/408/themes/919724/assets/menu.jpg?1698661561550">
             </div>

@@ -152,8 +152,9 @@
                 </button>
             </div>
             <div class="sidebar_content">
-                <h6 class="item_trangchu"><a href="/yodyyeu" style="font-size: 20px; font-weight: bold;"><span
-                            style="color: #2A2A86">YO</span><span style="color: #FCAF17">DY</span> <span
+                <h6 class="item_trangchu"><a href="{{ route('user.index') }}"
+                        style="font-size: 20px; font-weight: bold;"><span style="color: #2A2A86">4 </span><span
+                            style="color: #FCAF17">MEN</span> <span
                             style="color: #FCAF17; font-style: italic;">Yêu</span></a></h6>
                 <div class="sidbar_item">
                     <div class="item_child">

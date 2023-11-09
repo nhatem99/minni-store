@@ -122,7 +122,7 @@
         <div class="container container-mb d-flex d-lg-none">
             <div class="sibar" style="flex: 1; padding-left:10px">
                 <img style="width: 28px; height: 28px"
-                    src="//bizweb.dktcdn.net/100/438/408/themes/919724/assets/menu.jpg?1698661561550">
+                    src="{{ asset('public/users/images/menu.webp') }}">
             </div>
             <div class="logo" style="flex: 1; padding-left: 20px;">
                 <a href="{{ route('user.index') }}">
@@ -130,16 +130,16 @@
                 </a>
             </div>
             <div class="header-tool d-lg-none d-flex align-items-center">
-                <div id="search_header" style="padding: 7px 2px;">
+                <div id="search_header" style="padding: 7px 2px;">         
                     <img width="35" height="35"
-                        src="//bizweb.dktcdn.net/100/438/408/themes/919724/assets/search_icon.jpg?1698661675398"
+                        src="{{ asset('public/users/images/search_icon.webp') }}"
                         alt="message">
                 </div>
                 <div class="cart-drop">
                     <div id="btn-cart">
-                        <a href="{{ route('cart.show') }}" title="Giỏ hàng">
+                        <a href="{{ route('cart.show') }}" title="Giỏ hàng">                    
                             <img width="24" height="24"
-                                src="//bizweb.dktcdn.net/100/438/408/themes/919724/assets/cart.svg?1698661675398"
+                                src="{{ asset('public/users/images/cart.svg') }}"
                                 alt="giỏ hàng">
                         </a>
                         <span id="num" class="num-total">{{ Cart::count() }}</span>
@@ -151,7 +151,7 @@
         <div class="menu_sidebar_mobile d-lg-none">
             <div class="sidebar_title">
                 <button class="close_sidebar">
-                    <img src="//bizweb.dktcdn.net/100/438/408/themes/919724/assets/closemenu.svg?1699146395362"
+                    <img src="{{ asset('public/users/images/closemenu.svg') }}"
                         alt="vecter_x">
                 </button>
             </div>
@@ -376,7 +376,7 @@
                 <div class="cart-drop d-none d-lg-flex">
                     <a class="cart-wrap" href="{{ route('cart.show') }}" title="Giỏ hàng">
                         <img width="28" height="28"
-                            src="//bizweb.dktcdn.net/100/438/408/themes/919724/assets/icon-cart-header.svg?1698744645576"
+                            src="{{asset('public/users/images/icon-cart-header.svg')}}"
                             alt="giỏ hàng">
                         <span class="count_item count_item_pr hidden-count">{{ Cart::count() }}</span>
                         <span class="gio-hang">GIỎ HÀNG</span>

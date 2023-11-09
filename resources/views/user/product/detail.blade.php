@@ -161,6 +161,60 @@
                 </ul>
             </div>
         </div>
+        <div class="section" id="feature-product-wp">
+            <div class="section-head">
+                <h3 class="section-title">Sản phẩm nổi bật</h3>
+            </div>
+            <div class="section-detail">
+                <ul class="list-item">
+                    @foreach ($products as $item)
+                        <li>
+                            @if ($item->discount > 0)
+                                <div class="sale-off">
+                                    <span class="sale-off-percent">{{ $item->discount }}%</span>
+                                    <span class="sale-off-label">GIẢM</span>
+                                </div>
+                            @endif
+                            <a href="{{ route('product.detail', ['slugCategory' => $item->category->catProductParent->slug, 'slugProduct' => $item->slug]) }}"
+                                title="" class="thumb">
+
+                                <div class="product_image">
+                                    <img src="{{ asset($item->feature_image) }}">
+                                    {{-- @if ($item->feature_image2)
+                                    <img src="{{ asset($item->feature_image2) }}">
+                                    @endif --}}
+                                </div>
+
+                            </a>
+                            <a href="?page=detail_product" title="" class="product-name">{{ $item->name }}</a>
+                            <div class="price">
+                                @if ($item->discount)
+                                    @php
+                                        $discount = $item->price - ($item->price * $item->discount) / 100;
+                                    @endphp
+                                    <span class="new">{{ number_format($discount, 0, '', '.') }}đ</span>
+                                    <span class="old">{{ number_format($item->price, 0, '', '.') }}đ</span>
+                                @else
+                                    <span class="new">{{ number_format($item->price, 0, '', '.') }}đ</span>
+                                @endif
+                            </div>
+                            <div class="action clearfix">
+                                <a href="{{ route('cart.addProduct', ['id' => $item->id]) }}" title=""
+                                    class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}"
+                                    data-account="{{ Auth::guard('account')->check() ? true : false }}"
+                                    data-quantity="{{ $item->quantity }}"
+                                    data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1 : 0 }}"><i
+                                        style="font-size: 17px; margin-right:5px" class="fa fa-shopping-cart"
+                                        aria-hidden="true"></i><span>Thêm giỏ
+                                        hàng</span></a>
+                                {{-- <a href="{{ route('product.detail', ['slugCategory' => $item->category->catProductParent->slug, 'slugProduct' => $item->slug]) }}"
+                                    title="" class="buy-now fl-right">Xem chi tiết</a> --}}
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
     </div>
     @include('user.components.sidebar')
 @endsection

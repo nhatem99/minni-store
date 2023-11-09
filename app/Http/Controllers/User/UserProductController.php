@@ -23,8 +23,9 @@ class UserProductController extends Controller {
         foreach ($catChild as $item) {
             $catIds[] = $item->id;
         }
+        $products = Product::where('featured', 1)->where('status', 1)->latest()->take(30)->get();
         $sameProduct = Product::whereIn('category_product_id', $catIds)->where('featured', 1)->where('status', 1)->get();
-        return view('user.product.detail', compact('product', 'productImgs', 'productColors','productSizes', 'sameProduct', 'cat'));
+        return view('user.product.detail', compact('product', 'productImgs', 'productColors','productSizes', 'sameProduct', 'cat','products'));
     }
 
     function category($slugCategory, Request $request) {

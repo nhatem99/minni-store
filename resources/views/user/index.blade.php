@@ -87,9 +87,13 @@
                             </div>
                             <div class="action clearfix">
                                 <a href="{{ route('cart.addProduct', ['id' => $item->id]) }}" title=""
-                                    class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}" data-account="{{ Auth::guard('account')->check() ? true : false }}" data-quantity="{{ $item->quantity }}" data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1: 0}}"><i style="font-size: 17px; margin-right:5px"
-                                    class="fa fa-shopping-cart" aria-hidden="true"></i><span>Thêm giỏ
-                                    hàng</span></a>
+                                    class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}"
+                                    data-account="{{ Auth::guard('account')->check() ? true : false }}"
+                                    data-quantity="{{ $item->quantity }}"
+                                    data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1 : 0 }}"><i
+                                        style="font-size: 17px; margin-right:5px" class="fa fa-shopping-cart"
+                                        aria-hidden="true"></i><span>Thêm giỏ
+                                        hàng</span></a>
                                 {{-- <a href="{{ route('product.detail', ['slugCategory' => $item->category->catProductParent->slug, 'slugProduct' => $item->slug]) }}"
                                     title="" class="buy-now fl-right">Xem chi tiết</a> --}}
                             </div>
@@ -103,7 +107,7 @@
         {{-- Ao thun --}}
         <div class="section" id="list-product-wp">
             <div class="section-head">
-                <a href="{{ route('user.category', ['slugCategory' => 'ao-thun']) }}" class="section-title">Áo Thun</a>
+                <h2 class="section-title">Áo Thun</h2>
             </div>
             <div class="section-detail">
                 <ul class="list-item clearfix">
@@ -139,9 +143,12 @@
                             </div>
                             <div class="action clearfix">
                                 <a href="{{ route('cart.addProduct', ['id' => $item->id]) }}" title="Thêm giỏ hàng"
-                                    class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}" data-account="{{ Auth::guard('account')->check() ? true : false }}" data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1: 0}}" data-quantity="{{ $item->quantity }}"><i style="font-size: 17px; margin-right:5px"
-                                    class="fa fa-shopping-cart" aria-hidden="true"></i><span>Thêm giỏ
-                                    hàng</span></a>
+                                    class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}"
+                                    data-account="{{ Auth::guard('account')->check() ? true : false }}"
+                                    data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1 : 0 }}"
+                                    data-quantity="{{ $item->quantity }}"><i style="font-size: 17px; margin-right:5px"
+                                        class="fa fa-shopping-cart" aria-hidden="true"></i><span>Thêm giỏ
+                                        hàng</span></a>
                                 {{-- <a href="{{ route('product.detail', ['slugCategory' => $item->category->catProductParent->slug, 'slugProduct' => $item->slug]) }}"
                                     title="Mua ngay" class="buy-now fl-right">Xem chi tiết</a> --}}
                             </div>
@@ -154,7 +161,7 @@
         {{-- Ao thun Polo --}}
         <div class="section" id="list-product-wp">
             <div class="section-head">
-                <a href="{{ route('user.category', ['slugCategory' => 'ao-thun']) }}" class="section-title">Áo Thun</a>
+                <h2 class="section-title">Áo Thun Polo</h2>
             </div>
             <div class="section-detail">
                 <ul class="list-item clearfix">
@@ -190,9 +197,12 @@
                             </div>
                             <div class="action clearfix">
                                 <a href="{{ route('cart.addProduct', ['id' => $item->id]) }}" title="Thêm giỏ hàng"
-                                    class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}" data-account="{{ Auth::guard('account')->check() ? true : false }}" data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1: 0}}" data-quantity="{{ $item->quantity }}"><i style="font-size: 17px; margin-right:5px"
-                                    class="fa fa-shopping-cart" aria-hidden="true"></i><span>Thêm giỏ
-                                    hàng</span></a>
+                                    class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}"
+                                    data-account="{{ Auth::guard('account')->check() ? true : false }}"
+                                    data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1 : 0 }}"
+                                    data-quantity="{{ $item->quantity }}"><i style="font-size: 17px; margin-right:5px"
+                                        class="fa fa-shopping-cart" aria-hidden="true"></i><span>Thêm giỏ
+                                        hàng</span></a>
                                 {{-- <a href="{{ route('product.detail', ['slugCategory' => $item->category->catProductParent->slug, 'slugProduct' => $item->slug]) }}"
                                     title="Mua ngay" class="buy-now fl-right">Xem chi tiết</a> --}}
                             </div>
@@ -205,8 +215,7 @@
         {{-- Áo sơ mi --}}
         <div class="section" id="list-product-wp">
             <div class="section-head">
-                <a href="{{ route('user.category', ['slugCategory' => 'ao-so-mi']) }}" class="section-title">Áo Sơ
-                    Mi</a>
+                <h2 class="section-title">Áo Sơ Mi</h2>
             </div>
             <div class="section-detail">
                 <ul class="list-item clearfix">
@@ -242,9 +251,12 @@
                             </div>
                             <div class="action clearfix">
                                 <a href="{{ route('cart.addProduct', ['id' => $item->id]) }}" title="Thêm giỏ hàng"
-                                    class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}" data-account="{{ Auth::guard('account')->check() ? true : false }}" data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1: 0}}" data-quantity="{{ $item->quantity }}"><i style="font-size: 17px; margin-right:5px"
-                                    class="fa fa-shopping-cart" aria-hidden="true"></i><span>Thêm giỏ
-                                    hàng</span></a>
+                                    class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}"
+                                    data-account="{{ Auth::guard('account')->check() ? true : false }}"
+                                    data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1 : 0 }}"
+                                    data-quantity="{{ $item->quantity }}"><i style="font-size: 17px; margin-right:5px"
+                                        class="fa fa-shopping-cart" aria-hidden="true"></i><span>Thêm giỏ
+                                        hàng</span></a>
                                 {{-- <a href="{{ route('product.detail', ['slugCategory' => $item->category->catProductParent->slug, 'slugProduct' => $item->slug]) }}"
                                     title="Mua ngay" class="buy-now fl-right">Xem chi tiết</a> --}}
                             </div>
@@ -257,8 +269,9 @@
         {{-- Quần Jean --}}
         <div class="section" id="list-product-wp">
             <div class="section-head">
-                <a href="{{ route('user.category', ['slugCategory' => 'quan-jean']) }}" class="section-title">Quần
-                    Jean</a>
+                {{-- <a href="{{ route('user.category', ['slugCategory' => 'quan-jean']) }}" class="section-title">Quần
+                    Jean</a> --}}
+                <h2 class="section-title">Quần Jean</h2>
             </div>
             <div class="section-detail">
                 <ul class="list-item clearfix">
@@ -296,9 +309,12 @@
                             </div>
                             <div class="action clearfix">
                                 <a href="{{ route('cart.addProduct', ['id' => $item->id]) }}" title="Thêm giỏ hàng"
-                                    class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}" data-account="{{ Auth::guard('account')->check() ? true : false }}" data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1: 0}}" data-quantity="{{ $item->quantity }}"><i style="font-size: 17px; margin-right:5px"
-                                    class="fa fa-shopping-cart" aria-hidden="true"></i><span>Thêm giỏ
-                                    hàng</span></a>
+                                    class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}"
+                                    data-account="{{ Auth::guard('account')->check() ? true : false }}"
+                                    data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1 : 0 }}"
+                                    data-quantity="{{ $item->quantity }}"><i style="font-size: 17px; margin-right:5px"
+                                        class="fa fa-shopping-cart" aria-hidden="true"></i><span>Thêm giỏ
+                                        hàng</span></a>
                                 {{-- <a href="{{ route('product.detail', ['slugCategory' => $item->category->catProductParent->slug, 'slugProduct' => $item->slug]) }}"
                                     title="Mua ngay" class="buy-now fl-right">Xem chi tiết</a> --}}
                             </div>

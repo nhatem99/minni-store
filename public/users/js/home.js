@@ -3,6 +3,8 @@ $(document).ready(function () {
     $(document).click(function (e) {
         const modal_search = $("#results-search");
         const inputSearch = $("#search");
+        const search_results_mobile = $(".results-box");
+        const inputSearchSidebar = $("#search_input");
         // // Nếu click bên ngoài đối tượng container thì ẩn nó đi
         if (
             !modal_search.is(e.target) &&
@@ -11,8 +13,17 @@ $(document).ready(function () {
             modal_search.hide();
         }
         if (inputSearch.is(e.target)) {
-            console.log("vao day");
             modal_search.show();
+        }
+        if (
+            !search_results_mobile.is(e.target) &&
+            search_results_mobile.has(e.target).length === 0
+        ) {
+            search_results_mobile.hide();
+        }
+
+        if (inputSearchSidebar.is(e.target)) {
+            search_results_mobile.show();
         }
     });
     $(".section-detail .list-item .add-cart").click(function (event) {
@@ -180,5 +191,40 @@ $(document).ready(function () {
         } else {
             $("#results-search").fadeOut();
         }
+    });
+    $("#search_header").click(function () {
+        $(".search_sidebar").css("transform", "translateX(0)");
+    });
+    $(".close_search").click(function () {
+        $(".search_sidebar").css("transform", "translateX(100%)");
+    });
+    $("#search_input").keyup(function () {
+        var href = $(this).data("url");
+        var kw = $(this).val();
+        if (kw != "") {
+            $.ajax({
+                url: href,
+                method: "GET",
+                data: { kw: kw },
+                dataType: "json",
+                success: function (data) {
+                    if (data.code == 200) {
+                        $(".search-results").fadeIn();
+                        $(".search-results").html(data.text);
+                    }
+                },
+            });
+        } else {
+            $(".search-results").fadeOut();
+        }
+    });
+    $("#search_input").click(function () {
+        $(".results-box").removeClass("d-none");
+        $(".delete_search").removeClass("d-none");
+    });
+    $(".delete_search").click(function () {
+        $("#search_input").val("");
+        $(".search-results").html("");
+        $(this).addClass("d-none");
     });
 });

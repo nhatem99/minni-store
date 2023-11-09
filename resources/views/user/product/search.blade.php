@@ -84,12 +84,12 @@
                                 </div>
                                 <div class="action clearfix">
                                     <a href="{{ route('cart.addProduct', ['id' => $item->id]) }}" title="Thêm giỏ hàng"
-                                        class="add-cart fl-left" data-url="{{ route('cart.add', ['id' => $item->id]) }}"
+                                        class="add-cart" data-url="{{ route('cart.add', ['id' => $item->id]) }}"
                                         data-account="{{ Auth::guard('account')->check() ? true : false }}"
                                         data-verify="{{ Auth::guard('account')->check() && Auth::guard('account')->user()->verify_account == 1 ? 1 : 0 }}"
                                         data-quantity="{{ $item->quantity }}">Thêm giỏ hàng</a>
-                                    <a href="{{ route('product.detail', ['slugCategory' => $item->category->catProductParent->slug, 'slugProduct' => $item->slug]) }}"
-                                        title="" class="buy-now fl-right">Xem chi tiết</a>
+                                    {{-- <a href="{{ route('product.detail', ['slugCategory' => $item->category->catProductParent->slug, 'slugProduct' => $item->slug]) }}"
+                                        title="" class="buy-now fl-right">Xem chi tiết</a> --}}
                                 </div>
                             </li>
                         @endforeach

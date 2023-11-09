@@ -121,8 +121,7 @@
         </div>
         <div class="container container-mb d-flex d-lg-none">
             <div class="sibar" style="flex: 1; padding-left:10px">
-                <img style="width: 28px; height: 28px"
-                    src="{{ asset('public/users/images/menu.webp') }}">
+                <img style="width: 28px; height: 28px" src="{{ asset('public/users/images/menu.webp') }}">
             </div>
             <div class="logo" style="flex: 1; padding-left: 20px;">
                 <a href="{{ route('user.index') }}">
@@ -130,16 +129,14 @@
                 </a>
             </div>
             <div class="header-tool d-lg-none d-flex align-items-center">
-                <div id="search_header" style="padding: 7px 2px;">         
-                    <img width="35" height="35"
-                        src="{{ asset('public/users/images/search_icon.webp') }}"
+                <div id="search_header" style="padding: 7px 2px;">
+                    <img width="35" height="35" src="{{ asset('public/users/images/search_icon.webp') }}"
                         alt="message">
                 </div>
                 <div class="cart-drop">
                     <div id="btn-cart">
-                        <a href="{{ route('cart.show') }}" title="Giỏ hàng">                    
-                            <img width="24" height="24"
-                                src="{{ asset('public/users/images/cart.svg') }}"
+                        <a href="{{ route('cart.show') }}" title="Giỏ hàng">
+                            <img width="24" height="24" src="{{ asset('public/users/images/cart.svg') }}"
                                 alt="giỏ hàng">
                         </a>
                         <span id="num" class="num-total">{{ Cart::count() }}</span>
@@ -151,8 +148,7 @@
         <div class="menu_sidebar_mobile d-lg-none">
             <div class="sidebar_title">
                 <button class="close_sidebar">
-                    <img src="{{ asset('public/users/images/closemenu.svg') }}"
-                        alt="vecter_x">
+                    <img src="{{ asset('public/users/images/closemenu.svg') }}" alt="vecter_x">
                 </button>
             </div>
             <div class="sidebar_content">
@@ -288,6 +284,64 @@
                 </div>
             </div>
         </div>
+        <div class="search_sidebar d-lg-none" style="transform: translateX(100%);">
+            <div class="title">
+                <button class="close_search">
+                    <img width="24" height="24"
+                        src="{{ asset('public/users/images/arrow-left-search.svg') }}" alt="message">
+                </button>
+                <h5>
+                    Tìm kiếm sản phẩm
+                </h5>
+            </div>
+            <div class="theme-search-smart d-lg-none ">
+                <div class="header_search theme-searchs">
+                    <form action="{{ route('user.search') }}" autocomplete="off" class="input-group">
+                        <input type="text" id="search_input" aria-label="Tìm sản phẩm" name="search"
+                            value="{{ request()->input('search') }}" autocomplete="off"
+                            placeholder="Cần tìm áo thun, polo, đồ thể thao,…" class="search-auto auto-search"
+                            data-url="{{ route('user.autocomplete') }}">
+                        <button type="submit" id="btn_search" class="btn icon-fallback-text input-group-btn "
+                            style="background-color: rgb(217, 217, 217);"><i class="fa fa-search"
+                                aria-hidden="true"></i></button>
+                    </form>
+                    <button class="delete_search d-none">
+                        <img width="17.5px" height="17.5px"
+                            src="{{ asset('public/users/images/close-search.svg') }}" alt="message">
+                    </button>
+                    <div class="results-box box_banner d-none">
+                        <div class="goi_y"></div>
+                        <div class="search-results"></div>
+                        <div class="history"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="result-search-sidebar">
+                <div class="tin_noi_bat">
+                    <h6>
+                        Tìm kiếm nổi bật
+                    </h6>
+                    <ul>
+                        <li>
+                            <a href="{{ route('user.category', 'ao-thun-nam') }}" class="key_item resertSearch">Áo
+                                thun</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('user.category', 'ao-polo-nu') }}" class="key_item resertSearch">Áo
+                                polo</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('user.category', 'ao-polo-the-thao-nu') }}"
+                                class="key_item resertSearch">Đồ thể thao</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('user.category', 'quan-jeans-nu') }}"
+                                class="key_item resertSearch">Quần jean</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="wp-inner">
         <div class="topbar-bottom">
@@ -329,7 +383,7 @@
                             </ul>
                         </li>
                         <li class="nav-item has-mega">
-                            <a href="{{ route('user.category', 'ao-nam') }}" title="">Nữ</a>
+                            <a href="{{ route('user.category', 'ao-nu') }}" title="">Nữ</a>
                             <ul class="mega_type_2_group mega_menu">
                                 <li class="parrent-mega">
                                     <ul>
@@ -376,8 +430,7 @@
                 <div class="cart-drop d-none d-lg-flex">
                     <a class="cart-wrap" href="{{ route('cart.show') }}" title="Giỏ hàng">
                         <img width="28" height="28"
-                            src="{{asset('public/users/images/icon-cart-header.svg')}}"
-                            alt="giỏ hàng">
+                            src="{{ asset('public/users/images/icon-cart-header.svg') }}" alt="giỏ hàng">
                         <span class="count_item count_item_pr hidden-count">{{ Cart::count() }}</span>
                         <span class="gio-hang">GIỎ HÀNG</span>
                     </a>

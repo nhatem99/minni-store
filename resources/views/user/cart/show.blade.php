@@ -112,7 +112,7 @@
                 <img src="{{ asset('public/users/images/cart-empty.png') }}" alt="">
                 <p>Không có sản phẩm nào trong giỏ hàng của bạn</p>
                 <a href="{{ route('user.index') }}" class="btn btn-outline-success" title="trang chủ">Quay trở về Trang
-                    chủ Ismart Store</a>
+                    chủ 4MEN Store</a>
             </div>
         @endif
     </div>

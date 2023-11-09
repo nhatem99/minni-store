@@ -30,92 +30,84 @@ $(document).ready(function () {
         event.preventDefault();
         var account = $(this).data("account");
         var verify = $(this).data("verify");
-        console.log(verify);
-        console.log(account);
         if (account == 1) {
-            if (verify == 1) {
-                var href = $(this).attr("href");
-                quantity = $(this).data("quantity");
-                var hrefCart = $(this).data("url");
-                var infoProduct = $(
-                    ".modal-content .modal-header .info-product"
-                );
-                var colorProduct = $(".modal-body .choose-color .desc");
-                var num = $("#num-order-cart-wp .num-order").attr("value");
+            var href = $(this).attr("href");
+            quantity = $(this).data("quantity");
+            var hrefCart = $(this).data("url");
+            var infoProduct = $(".modal-content .modal-header .info-product");
+            var colorProduct = $(".modal-body .choose-color .desc");
+            var num = $("#num-order-cart-wp .num-order").attr("value");
 
-                if (quantity >= num) {
-                    $.ajax({
-                        url: href,
-                        method: "GET",
-                        data: {},
-                        dataType: "json",
-                        success: function (data) {
-                            if (data.code == 200) {
-                                var product = data.product; //type json
-                                // Insert info product
-                                $(infoProduct).html(
-                                    '<h4 class="modal-title">' +
-                                        product.name +
-                                        "</h4>" +
-                                        '<h6 class="modal-price">' +
-                                        data.priceProduct +
-                                        "đ</h6>"
+            if (quantity >= num) {
+                $.ajax({
+                    url: href,
+                    method: "GET",
+                    data: {},
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.code == 200) {
+                            var product = data.product; //type json
+                            // Insert info product
+                            $(infoProduct).html(
+                                '<h4 class="modal-title">' +
+                                    product.name +
+                                    "</h4>" +
+                                    '<h6 class="modal-price">' +
+                                    data.priceProduct +
+                                    "đ</h6>"
+                            );
+
+                            // Insert color product
+                            $(colorProduct).html(
+                                data.txt_color + data.txt_size
+                            );
+
+                            //Show modal
+                            $("#modal-product-cart").modal("show");
+                            //Active color
+                            $(".desc .product-color").click(function () {
+                                $(".desc .product-color.active").removeClass(
+                                    "active"
                                 );
-
-                                // Insert color product
-                                $(colorProduct).html(
-                                    data.txt_color + data.txt_size
+                                $(this)
+                                    .find("input[name=check-color-cart]")
+                                    .prop("checked", true);
+                                $(this).addClass("active");
+                            });
+                            //Active size
+                            $(".desc .product-size").click(function () {
+                                $(".desc .product-size.active").removeClass(
+                                    "active"
                                 );
+                                $(this)
+                                    .find("input[name=check-size-cart]")
+                                    .prop("checked", true);
+                                $(this).addClass("active");
+                            });
+                            $(".modal-footer .product-cart").attr(
+                                "href",
+                                hrefCart
+                            );
 
-                                //Show modal
-                                $("#modal-product-cart").modal("show");
-                                //Active color
-                                $(".desc .product-color").click(function () {
-                                    $(
-                                        ".desc .product-color.active"
-                                    ).removeClass("active");
-                                    $(this)
-                                        .find("input[name=check-color-cart]")
-                                        .prop("checked", true);
-                                    $(this).addClass("active");
-                                });
-                                //Active size
-                                $(".desc .product-size").click(function () {
-                                    $(".desc .product-size.active").removeClass(
-                                        "active"
-                                    );
-                                    $(this)
-                                        .find("input[name=check-size-cart]")
-                                        .prop("checked", true);
-                                    $(this).addClass("active");
-                                });
-                                $(".modal-footer .product-cart").attr(
-                                    "href",
-                                    hrefCart
-                                );
+                            //Reset lại num-order khi ẩn modal
+                            $("#modal-product-cart").on(
+                                "hide.bs.modal",
+                                function () {
+                                    $("#num-order-cart-wp .num-order").attr(
+                                        "value",
+                                        1
+                                    ); //Value có thể thay đổi được
 
-                                //Reset lại num-order khi ẩn modal
-                                $("#modal-product-cart").on(
-                                    "hide.bs.modal",
-                                    function () {
-                                        $("#num-order-cart-wp .num-order").attr(
-                                            "value",
-                                            1
-                                        ); //Value có thể thay đổi được
-
-                                        //Value bị cố định là 1
-                                        // $("#num-order-wp .num-order").val(1);
-                                    }
-                                );
-                            }
-                        },
-                    });
-                } else {
-                    // alert('Số lượng còn ' + quantity + ' xin chọn lại');
-                    $("#modalCart").modal("show");
-                }
+                                    //Value bị cố định là 1
+                                    // $("#num-order-wp .num-order").val(1);
+                                }
+                            );
+                        }
+                    },
+                });
             } else {
-                $("#modalVerifyAccount").modal("show");
+                // alert('Số lượng còn ' + quantity + ' xin chọn lại');
+                $("#modalCart").modal("show");
             }
         } else {
             $("#modalAccount").modal("show");

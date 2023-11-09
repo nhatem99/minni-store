@@ -1,5 +1,5 @@
 <div id="menu-respon">
-    <a href="?page=home" title="" class="logo">YOLO SHOP</a>
+    <a href="?page=home" title="" class="logo">4MEN SHOP</a>
     <div id="menu-respon-wp">
         <ul class="" id="main-menu-respon">
             <li>

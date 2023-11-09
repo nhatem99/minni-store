@@ -2,12 +2,12 @@
     <div id="foot-body">
         <div class="wp-inner clearfix">
             <div class="block" id="info-company">
-                <h3 class="title">YOLO</h3>
-                <p class="desc">YOLO luôn cung cấp luôn là sản phẩm chính hãng có thông tin rõ ràng, chính
+                <h3 class="title">4MEN</h3>
+                <p class="desc">4MEN luôn cung cấp luôn là sản phẩm chính hãng có thông tin rõ ràng, chính
                     sách ưu đãi cực lớn cho khách hàng có thẻ thành viên.</p>
                 <div id="payment">
                     <div class="thumb">
-                        <img src="{{ asset('public/users/images/LogoYolo.png') }}" alt="">
+                        <img src="{{ asset('public/users/images/logo-5.png') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -15,13 +15,13 @@
                 <h3 class="title">Thông tin cửa hàng</h3>
                 <ul class="list-item">
                     <li>
-                        <p>106 - Trần Bình - Cầu Giấy - Hà Nội</p>
+                        <p>106 - Cách Mạng Tháng 8 - Tân Bình - Hồ Chí Minh</p>
                     </li>
                     <li>
                         <p>0987.654.321 - 0989.989.989</p>
                     </li>
                     <li>
-                        <p>Yoloshop@gmail.com</p>
+                        <p>minhnhat@minni-store.online</p>
                     </li>
                 </ul>
             </div>
@@ -56,7 +56,7 @@
     </div>
     <div id="foot-bot">
         <div class="wp-inner">
-            <p id="copyright">© Bản quyền thuộc về YOLO</p>
+            <p id="copyright">© Bản quyền thuộc về 4MEN</p>
         </div>
     </div>
 </div>

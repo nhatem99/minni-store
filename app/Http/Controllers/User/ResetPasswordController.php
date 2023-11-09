@@ -32,10 +32,8 @@ class ResetPasswordController extends Controller
         if ($passwordReset) {
             $user->notify(new ResetPasswordRequest($passwordReset->token));
         }
-  
-        return response()->json([
-        'message' => 'We have e-mailed your password reset link!'
-        ]);
+        return redirect()->route('user.login');
+       
     }
     public function confirm(){
         return view('user.login.confirm');

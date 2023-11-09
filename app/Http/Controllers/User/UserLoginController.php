@@ -78,9 +78,10 @@ class UserLoginController extends Controller
     {
         $validate = $request->validate(
             [
-                'signupName' => ['required', 'string', 'max:255'],
+                'first_name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:accounts'],
-                'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'password' => ['required', 'string', 'min:8'],
+                'Phone' => ['numeric' , 'min:10'],
             ],
             [
                 'required' => ':attribute không được để trống',
@@ -88,22 +89,24 @@ class UserLoginController extends Controller
                 'min' => ':attribute có độ dài ít nhất :min kí tự',
             ],
             [
-                'signupName' => 'Tên người dùng',
+                'first_name' => 'Tên người dùng',
                 'email' => 'Email',
                 'password' => 'Mật khẩu',
             ]
         );
         if ($validate) {
             $data = [
-                'name' => $request->signupName,
+                'name' => $request->first_name,
                 'email' => $request->email,
                 'password' => $request->password,
+                'phone' => $request->Phone
             ];
             Account::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
-                'verify_account' => false,
+                'phone_number' => $data['phone'],
+                'verify_account' => true,
             ]);
             return redirect()->route('user.login')->with('status', 'Tạo tài khoản thành công');
         } else {

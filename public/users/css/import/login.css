@@ -1,12 +1,11 @@
-
 #main-content-wp {
-    background: url(//bizweb.dktcdn.net/100/438/408/themes/919724/assets/bg_login.jpg?1699242260105)
+    background: url('../../images/bg_login.webp')
         bottom center no-repeat !important;
     background-size: cover !important;
     padding: 50px 0 !important;
 }
-.wp-inner{
-  padding: 0 !important;
+.wp-inner {
+    padding: 0 !important;
 }
 .page-content-account .container,
 .container-fluid {
@@ -32,7 +31,6 @@
 .page-content-account .left-col h2,
 .page-content-account .right-col h1,
 .page-content-account .right-col h2 {
-    font-family: "SVN-Gilroy Bold";
     font-size: 26px;
     margin: 0;
     padding: 0;
@@ -50,6 +48,32 @@
 .page-content-account .right-col form {
     margin: 0;
     padding: 0;
+}
+.page-content-account .left-col .group-recover .description,
+.page-content-account .right-col .group-recover .description {
+    width: 385px;
+    margin: 0 auto 10px;
+    padding: 0;
+    display: block;
+    text-align: center;
+    max-width: 100%;
+}
+.page-content-account .left-col .group-recover .btn-ref,
+.page-content-account .right-col .group-recover .btn-ref {
+    display: inline-block;
+    width: calc(50% - 9px);
+    margin-right: 10px;
+    line-height: 48px;
+    background: #feeeea;
+    color: #fcaf17;
+    text-align: center;
+    padding: 0;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 18px;
 }
 .page-content-account .left-col p,
 .page-content-account .right-col p {
@@ -106,7 +130,6 @@
     font-weight: bold;
     border-radius: 4px;
     font-size: 18px;
-    font-family: "SVN-Gilroy Bold";
     margin-bottom: 10px;
 }
 .page-content-account .left-col p.forgot a:nth-child(1),
@@ -146,5 +169,5 @@
     color: #fcaf17 !important;
 }
 .page-signup-error * {
-    color: #F5222D !important;
+    color: #f5222d !important;
 }

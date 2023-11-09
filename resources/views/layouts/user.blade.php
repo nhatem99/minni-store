@@ -37,7 +37,7 @@
             @include('user.components.footer')
         </div>
         @include('user.components.menuRespon')
-        <div id="btn-top"><img src="{{ asset('public/users/images/icon-to-top.png') }}" alt="" /></div>
+        <div id="btn-top"><img src="{{ asset('public/users/images/icon-go-to-top.svg') }}" alt="" /></div>
         <div id="fb-root"></div>
     </div>
     <script src="{{ asset('public/bootstrap/js/jquery-3.5.1.min.js') }}" type="text/javascript"></script>

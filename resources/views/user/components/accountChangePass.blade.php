@@ -65,10 +65,10 @@
                         </div>
                     @endif
                     @if (session('errors'))
-                    <div class="alert alert-danger">
-                        {{ session('errors') }}
-                    </div>
-                @endif
+                        <div class="alert alert-danger">
+                            {{ session('errors') }}
+                        </div>
+                    @endif
                     <h1 class="title-head margin-top-0">Đổi mật khẩu<span>(Để bảo mật tài khoản, vui lòng không chia sẻ mật
                             khẩu cho người khác)</span></h1>
                     <form method="post" action="{{ route('postchangepass') }}" id="change_customer_password"
@@ -81,7 +81,7 @@
                                 <label for="oldPass">Mật khẩu hiện tại <span class="error">*</span></label>
                                 <input type="password" name="OldPassword" id="OldPass" required=""
                                     class="form-control form-control-lg">
-                                <a class="forgot" href="/account/login">QUÊN MẬT KHẨU?</a>
+                                <a class="forgot" href="{{ route('write.mail') }}">QUÊN MẬT KHẨU?</a>
                             </fieldset>
                             <fieldset class="form-group col-12">
                                 <label for="changePass">Mật khẩu mới <span class="error">*</span></label>
@@ -97,7 +97,7 @@
                         <p class="btn-page">
                             <a href="{{ route('user.account') }}">Hủy</a>
                             <button class="button-default" type="submit"><i class="hoverButton"></i>Lưu</button>
-                            <a class="forgot d-block d-md-none" href="/account/login">Quên mật khẩu?</a>
+                            <a class="forgot d-block d-md-none" href="{{ route('write.mail') }}">Quên mật khẩu?</a>
                         </p>
                     </form>
                 </div>

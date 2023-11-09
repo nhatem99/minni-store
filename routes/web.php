@@ -4,7 +4,7 @@ use App\Account;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
-use App\Models\Accounts;
+use Illuminate\Support\Facades\Hash;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,28 +29,44 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth']], func
 });
 // Route::get('/userlogin', 'UserLoginController@index')->name('user.login');
 // Route::get('auth/google/callback',);
-Route::get('auth/google/callback', function(){
+Route::get('auth/google/callback', function () {
     $user = Socialite::driver('google')->user();
-    dd(Account::all());
-    // dd($user);
+    if (Account::where('email', $user->email)->count() > 0) {
+        if (Auth::guard('account')->attempt([
+            'email' => $user->email,
+            'password' =>  $user->id,
+        ])) {
+            return redirect()->route('user.index')->with('status', 'succsec');
+        }
+    }
+    Account::create([
+        'email' => $user->email,
+        'name' => $user->name,
+        'avatar' => 'dasdasads',
+        'password' => Hash::make($user->id),
+        'verify_account' => true,
+    ]);
+    if (Auth::guard('account')->attempt([
+        'email' => $user->email,
+        'password' =>  $user->id,
+    ])) {
+        return redirect()->route('user.index')->with('status', 'succsec');
+    }
 });
-Route::get('auth/google', function(){
+Route::get('auth/google', function () {
     return Socialite::driver('google')->redirect();
-});
-Route::get('auth/facebook/callback', function(){
+})->name('login_google');
+Route::get('auth/facebook/callback', function () {
     // $user = Socialite::dirve('google')->user();
     return 'callback login facebook';
-
 });
-Route::get('auth/facebook', function(){
+Route::get('auth/facebook', function () {
     // $user = Socialite::dirve('google')->user();
     return Socialite::driver('facebook')
-    ->redirect();
-
+        ->redirect();
 });
-Route::get('chinh-sach-rieng-tu', function(){
-   return '<h1>Chinh sach ring tu</h1>';
-
+Route::get('chinh-sach-rieng-tu', function () {
+    return '<h1>Chinh sach ring tu</h1>';
 });
 Route::group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
     Route::get('admin', 'AdminDashboardController@show')->name('dashboard');
@@ -72,9 +88,9 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
 
         Route::post('update/{id}', 'AdminUserController@postUpdate');
     });
-    Route::group(['prefix' => 'admin/account'],function () {
-        Route::get('/','AdminAccountUserController@list');
-        Route::get('list','AdminAccountUserController@list');
+    Route::group(['prefix' => 'admin/account'], function () {
+        Route::get('/', 'AdminAccountUserController@list');
+        Route::get('list', 'AdminAccountUserController@list');
         Route::get('add', 'AdminAccountUserController@add')->name('account.add');
 
         Route::post('store', 'AdminAccountUserController@store');
@@ -257,12 +273,18 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'auth'], function () {
 });
 
 Route::group(['namespace' => 'User'], function () {
-    
+
     Route::get('/userlogin', 'UserLoginController@index')->name('user.login');
     Route::post('/userlogin', 'UserLoginController@postLogin')->name('user.login');
     Route::post('/userlogout', 'UserLoginController@logout')->name('user.logout');
     Route::get('/register', 'UserLoginController@create')->name('user.register');
     Route::get('/verify', 'UserLoginController@verify')->name('user.verify');
+    Route::get('/account', 'UserLoginController@infoAccount')->name('user.account');
+    Route::get('/account/order', 'UserLoginController@accountOrder')->name('account-order');
+    Route::get('/account/addresses', 'UserLoginController@infoAddress')->name('user.address');
+    Route::post('/account/addresses', 'UserLoginController@postInfoAddress')->name('user.postAddress');
+    Route::get('/account/changepassword', 'UserLoginController@getChangePassword')->name('user.changepass');
+    Route::post('/account/changepassword', 'UserLoginController@postChangePassword')->name('postchangepass');
     Route::get('/verify/{id}', 'UserLoginController@sendmail')->name('user.verify-sendmail');
     Route::post('/verify/{id}', 'UserLoginController@verifyConfirm')->name('user.verify-confirm');
     Route::post('/store', 'UserLoginController@store')->name('user.store');
@@ -271,9 +293,9 @@ Route::group(['namespace' => 'User'], function () {
     Route::post('/reset-password', 'ResetPasswordController@sendMail')->name('send.mail');
     Route::get('/confirm-password', 'ResetPasswordController@confirm')->name('confirm.password');
     Route::post('/confirm-password', 'ResetPasswordController@reset')->name('reset.password');
- 
+
     Route::get('/', 'UserHomeController@index')->name('user.index');
- 
+
     Route::get('tim-kiem', 'UserProductController@search')->name('user.search');
     Route::get('autocomplete', 'UserProductController@autocomplete')->name('user.autocomplete');
     Route::get('hoan-thanh-don-hang', 'UserCartController@complete')->name('user.complete');
@@ -292,7 +314,7 @@ Route::group(['namespace' => 'User'], function () {
 
 
 
-    Route::group(['prefix' => 'cart','middleware' => ['checklogin']], function () {
+    Route::group(['prefix' => 'cart', 'middleware' => ['checklogin']], function () {
         Route::get('/', 'UserCartController@show')->name('cart.show');
         Route::get('addProductCart/{id}', 'UserCartController@addProductCart')->name('cart.addProduct');
         Route::get('add/{id}', 'UserCartController@addCart')->name('cart.add');

@@ -264,15 +264,26 @@
                         <img class="sub_icon" src="{{ asset('public/users/images/messages.svg') }}" alt="message">
                         <a href="https://zalo.me/0377411577">Tư vấn qua Zalo</a>
                     </div>
-                    <div class="item_contact item_not_level">
-                        <img class="sub_icon" src="{{ asset('public/users/images/vector_userui.svg') }}"
-                            alt="user">
-                        <a href="{{ route('user.login') }}">Đăng nhập</a>
-                    </div>
-                    <div class="item_contact item_not_level click_theo_doi">
-                        <img class="sub_icon" src="{{ asset('public/users/images/car.svg') }}" alt="delivery">
-                        <a href="/account/orders">Đơn hàng của tôi</a>
-                    </div>
+
+                    @if (Auth::guard('account')->check())
+                        <div class="item_contact item_not_level">
+                            <img class="sub_icon" src="{{ asset('public/users/images/vector_userui.svg') }}"
+                                alt="user">
+                            <a href="{{ route('user.account') }}">Tài khoản của tôi</a>
+                        </div>
+                        <div class="item_contact item_not_level click_theo_doi">
+                            <img class="sub_icon" src="{{ asset('public/users/images/car.svg') }}" alt="delivery">
+                            <a href="{{ route('account-order') }}">Đơn hàng của tôi</a>
+                        </div>
+                    @else
+                        <div class="item_contact item_not_level">
+                            <img class="sub_icon" src="{{ asset('public/users/images/vector_userui.svg') }}"
+                                alt="user">
+                            <a href="{{ route('user.login') }}">Đăng nhập</a>
+                        </div>
+                    @endif
+
+
 
                 </div>
             </div>
@@ -447,7 +458,7 @@
                                                 tin đơn hàng</a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('user.verify') }}">Xác thực tài khoản</a>
+                                            <a href="{{ route('user.account') }}">Tài khoản của tôi</a>
                                         </li>
 
                                         <li class="logout">

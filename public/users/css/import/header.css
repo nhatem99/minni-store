@@ -5,7 +5,7 @@
     left: 0;
     width: 100%;
     z-index: 99;
-    background: url(//bizweb.dktcdn.net/100/438/408/themes/919724/assets/background-header.png?1698719893114);
+    background: url('../../images/background-header.webp');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.05);
@@ -127,7 +127,7 @@
     height: 40px;
     right: 0;
     top: 0px;
-    background: #fcaf17 url(icon-search.svg) center center no-repeat;
+    background: #fcaf17 url('../../images/icon-search.svg') center center no-repeat;
     overflow: hidden;
     border-radius: 0 8px 8px 0;
     position: relative;
@@ -570,6 +570,7 @@
     font-size: 0;
     justify-content: center;
     align-items: center;
+    margin-right: 20px;
 }
 .header-tool .user {
     position: relative;

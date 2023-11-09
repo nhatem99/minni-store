@@ -30,14 +30,14 @@
                         <form method="post" action="{{ route('user.login') }}"id="customer_login" accept-charset="UTF-8">
                             @csrf
                             <fieldset class="form-group">
-                                <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$"
+                                <input type="email" 
                                     class="form-control form-control-lg" value="" name="email" id="customer_email"
-                                    placeholder="Email" oninput="inputFunctionEmail()">
+                                    placeholder="Email" >
                                 <span id="errorEmailText" class="errorEmailText"></span>
                             </fieldset>
                             <fieldset class="form-group">
                                 <input type="password" class="form-control form-control-lg" value="" name="password"
-                                    id="customer_password" placeholder="Mật khẩu" oninput="inputFunctionPass()">
+                                    id="customer_password" placeholder="Mật khẩu" >
                                 <span class="showpass"></span>
                                 {{-- <span id="errorPassText" class="errorPassText"></span> --}}
                             </fieldset>
@@ -95,20 +95,20 @@
                             </script>
                             <div class="d-flex justify-content-center page-signup-social-wrapper">
                                 <div class="page-signup-social">
-                                    <a href="javascript:void(0)" class="social-login--google" onclick="loginGoogle()"><img
+                                    <a href="{{route('login_google')}}" class="social-login--google"><img
                                             width="129px" height="37px" alt="google-login-button"
                                             src="//bizweb.dktcdn.net/100/438/408/themes/919724/assets/ic_btn_google.svg?1699264419526"
                                             class="bg-white"
                                             style="height: 48px; width: 120px; border: 1px solid rgb(240, 240, 240); border-radius: 500px;"></a>
                                 </div>
-                                <div class="page-signup-social">
+                                {{-- <div class="page-signup-social">
                                     <a href="javascript:void(0)" class="social-login--facebook"
                                         onclick="loginFacebook()"><img width="129px" height="37px"
                                             alt="facebook-login-button"
                                             src="//bizweb.dktcdn.net/100/438/408/themes/919724/assets/ic_btn_facebook.svg?1699264419526"
                                             class="bg-white"
                                             style="height: 48px; width: 120px; border: 1px solid rgb(240, 240, 240); border-radius: 500px;"></a>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="register">
@@ -123,7 +123,7 @@
                             accept-charset="UTF-8"><input name="FormType" type="hidden"
                                 value="recover_customer_password"><input name="utf8" type="hidden" value="true">
                             <fieldset class="form-group">
-                                <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$"
+                                <input type="email" 
                                     class="form-control form-control-lg" value="" name="Email" id="recover-email"
                                     placeholder="Nhập email" required="">
                             </fieldset>

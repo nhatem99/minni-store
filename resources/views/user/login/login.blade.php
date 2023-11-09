@@ -43,8 +43,8 @@
                             </fieldset>
                             <button class="btn-login btn-login-form" type="submit" value="Đăng nhập"
                                 style="width:100%;margin-bottom:16px">Đăng nhập</button>
-                            <p class="d-block d-md-none forgot-mb"><a href="#"
-                                    onclick="showRecoverPasswordForm();return false;" style="font-weight: 600">Quên mật
+                            <p class="d-block d-md-none forgot-mb"><a href="{{ route('write.mail') }}"
+                                     style="font-weight: 600">Quên mật
                                     khẩu</a></p>
                         </form>
                         <p class="forgot">

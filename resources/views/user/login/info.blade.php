@@ -61,12 +61,12 @@
                 <div class="col-right-ac">
                     <h1 class="title-head margin-top-0">Thông tin cá nhân
                         {{-- <a href="{{route('user.address')}}" class="btn-edit-addr btn btn-primarys btn-more">Sửa thông tin</a> --}}
-                        <button
-                            class="btn-edit-addr btn btn-primarys btn-more" type="button"
-                            onclick="window.location.href='{{ route('user.address') }}'">Sửa thông tin</button></h1>
+                        <button class="btn-edit-addr btn btn-primarys btn-more" type="button"
+                            onclick="window.location.href='{{ route('user.address') }}'">Sửa thông tin</button>
+                    </h1>
                     <div class="form-signup name-account m992">
-                        <p><strong>Họ và tên:</strong> Hoang Nhat</p>
-                        <p><strong>Địa chỉ email:</strong> hoangvuminhnhat1@gmail.com</p>
+                        <p><strong>Họ và tên:</strong> {{ Auth::guard('account')->user()->name }}</p>
+                        <p><strong>Địa chỉ email:</strong> {{ Auth::guard('account')->user()->email }}</p>
                     </div>
                 </div>
             </div>
